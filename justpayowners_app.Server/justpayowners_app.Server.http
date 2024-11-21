@@ -1,0 +1,6 @@
+@justpayowners_app.Server_HostAddress = http://localhost:5175
+
+GET {{justpayowners_app.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
