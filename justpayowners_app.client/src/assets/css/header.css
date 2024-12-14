@@ -467,7 +467,33 @@ li.dropdown.submenu-level1 {
 }
 
 
+/*custom styles*/
 
 
+.logo-area a.header-brand img {
+    width: 150px;
+}
 
+.location-dropdown.loc_menu {
+    left: 2px;
+}
 
+.location-dropdown-inner:before {
+    left: 30px;
+}
+
+#mobile-menu ul.main-menu__dropdown.sub-menu .sub-menu {
+    padding-left: 20px;
+}
+
+#mobile-menu .sub-menu i {
+    margin-right: 10px;
+}
+
+#mobile-menu  .offscreen-navigation .menu > li a {
+    color: black !important;
+}
+
+#meanmenu .mean-bar img {
+    height: 25px;
+}

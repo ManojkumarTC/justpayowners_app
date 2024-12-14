@@ -10,7 +10,6 @@ const HeaderLink = ({ propsProfile = false }) => {
 		  <header className="rt-header sticky-on">
               <div id="sticky-placeholder"></div>
               <div id="navbar-wrap" className="header-menu menu-layout1 header-menu menu-layout3">
-                  <div className="container">
                       <div className="row d-flex align-items-center">
                           <div className="col-xl-2 col-lg-2">
                               <div className="logo-area">
@@ -33,7 +32,6 @@ const HeaderLink = ({ propsProfile = false }) => {
                         </div>
 
                       </div>
-                  </div>
               </div>
           </header>
 
