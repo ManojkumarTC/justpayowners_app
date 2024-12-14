@@ -469,6 +469,10 @@ li.dropdown.submenu-level1 {
 
 /*custom styles*/
 
+#navbar-wrap {
+    padding: 0px 30px;
+    padding-top: 10px;
+}
 
 .logo-area a.header-brand img {
     width: 150px;
@@ -496,4 +500,30 @@ li.dropdown.submenu-level1 {
 
 #meanmenu .mean-bar img {
     height: 25px;
+}
+
+/*custom footer styles*/
+
+footer.footer-area .footer-top {
+    padding: 50px 30px;
+}
+
+footer.footer-area .footer-bottom {
+    padding: 15px 30px;
+}
+
+.footer-logo-area .item-social li {
+    margin-right: 10px;
+}
+
+@media (max-width:767px){
+    .footer-bottom .copyright-area1 {
+        text-align: left !important;
+    }
+    .footer-logo-area .item-social {
+        float: none !important;
+    }
+    .copyright-area1 span {
+        display: block;
+    }
 }
