@@ -37,8 +37,8 @@ export { default as PropertyOwnerDetails } from "./property/PropertyOwnerDetails
 export { default as PropertyAmenities } from "./property/PropertyAmenities";
 export { default as PropertyBreadcrumb } from "./property/PropertyBreadcrumb";
 export { default as PropertyDescriptionTabs } from "./property/PropertyDescriptionTabs";
-export { default as PropertyDetailsHeader } from "./property/PropertyDetailsHeader";
-export { default as PropertyGallery } from "./property/PropertyGallery";
+
+
 /*export { default as PropertyGlobalViews } from "./property/PropertyGlobalViews";*/
 export { default as PropertyMap } from "./property/PropertyMap";
 export { default as PropertyOverview } from "./property/PropertyOverview";
