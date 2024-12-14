@@ -1,7 +1,7 @@
 ﻿
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { PropertyBreadcrumb, PropertyDetailsHeader, PropertyInformation, LatestProperties, PropertyOverview, PropertyAmenities, PropertyMap, PropertyGallery, PropertyDescriptionTabs, PropertyBanner, PropertyOwnerDetails, PropertySimilartags  } from "../components";
+import {   PropertyInformation, LatestProperties, PropertyOverview, PropertyAmenities, PropertyMap,  PropertyDescriptionTabs, PropertyBanner, PropertyOwnerDetails, PropertySimilartags  } from "../components";
 import JPOapi from "../common";
 import { useParams } from "react-router";
 import moment from 'moment'
