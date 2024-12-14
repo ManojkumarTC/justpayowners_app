@@ -46,12 +46,16 @@ export default defineConfig({
             '^/weatherforecast': {
                 target,
                 secure: false
-            }
+            },
+            '/api': {
+                target: 'http://justpayowners.runasp.net',
+                changeOrigin: true, // Ensures the origin of the host header is changed
+                secure: false,      // Disable SSL verification if needed (use with caution)
+                rewrite: (path) => path.replace(/^\/api/, ''),
+            },          
+
         },
         port: 5173,
-        https: {
-            key: fs.readFileSync(keyFilePath),
-            cert: fs.readFileSync(certFilePath),
-        }
+        https: false
     }
 })

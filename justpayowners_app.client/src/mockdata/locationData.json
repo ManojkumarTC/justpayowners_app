@@ -1,0 +1,606 @@
+{
+    "popularCity": [
+        {
+            "name": "New Delhi",
+            "path": "property-location/delhi"
+        },
+        {
+            "name": "Mumbai",
+            "path": "property-location/mumbai"
+        },
+        {
+            "name": "Gurgaon",
+            "path": "property-location/gurgaon"
+        },
+        {
+            "name": "Noida",
+            "path": "property-location/noida"
+        },
+        {
+            "name": "Bangalore",
+            "path": "property-location/bangalore"
+        },
+        {
+            "name": "Ahmedabad",
+            "path": "property-location/ahmedabad"
+        },
+        {
+            "name": "Navi Mumbai",
+            "path": "property-location/navimumbai"
+        },
+        {
+            "name": "Kolkata",
+            "path": "property-location/kolkata"
+        },
+        {
+            "name": "Chennai",
+            "path": "property-location/chennai"
+        },
+        {
+            "name": "Pune",
+            "path": "property-location/pune"
+        },
+        {
+            "name": "Greater Noida",
+            "path": "property-location/greaternoida"
+        },
+        {
+            "name": "Thane",
+            "path": "property-location/thane"
+        }
+    ],
+    "OtherCity": [
+        {
+            "name": "Agra",
+            "path": "property-location/agra"
+        },
+        {
+            "name": "Bhiwadi",
+            "path": "property-location/bhiwadi"
+        },
+        {
+            "name": "Bhubaneswar",
+            "path": "property-location/bhubaneswar"
+        },
+        {
+            "name": "Bhopal",
+            "path": "property-location/bhopal"
+        },
+        {
+            "name": "Chandigarh",
+            "path": "property-location/chandigarh"
+        },
+        {
+            "name": "Coimbatore",
+            "path": "property-location/coimbatore"
+        },
+        {
+            "name": "Dehradun",
+            "path": "property-location/dehradun"
+        },
+        {
+            "name": "Faridabad",
+            "path": "property-location/faridabad"
+        },
+        {
+            "name": "Ghaziabad",
+            "path": "property-location/ghaziabad"
+        },
+        {
+            "name": "Haridwar",
+            "path": "property-location/haridwar"
+        },
+        {
+            "name": "Hyderabad",
+            "path": "property-location/hyderabad"
+        },
+        {
+            "name": "Indore",
+            "path": "property-location/indore"
+        },
+        {
+            "name": "Jaipur",
+            "path": "property-location/jaipur"
+        },
+        {
+            "name": "Kochi",
+            "path": "property-location/kochi"
+        },
+        {
+            "name": "Lucknow",
+            "path": "property-location/lucknow"
+        },
+        {
+            "name": "Ludhiana",
+            "path": "property-location/ludhiana"
+        },
+        {
+            "name": "Nashik",
+            "path": "property-location/nashik"
+        },
+        {
+            "name": "Nagpur",
+            "path": "property-location/nagpur"
+        },
+        {
+            "name": "Surat",
+            "path": "property-location/surat"
+        },
+        {
+            "name": "Vadodara",
+            "path": "property-location/vadodara"
+        }
+    ],
+    "TopCitiesToBuy": [
+        {
+            "name": "Bangalore",
+            "path": "property-location/bangalore"
+        },
+        {
+            "name": "Delhi",
+            "path": "property-location/delhi"
+        },
+        {
+            "name": "Noida",
+            "path": "property-location/noida"
+        },
+        {
+            "name": "Greater Noida",
+            "path": "property-location/greater-noida"
+        },
+        {
+            "name": "Navi Mumbai",
+            "path": "property-location/navimumbai"
+        },
+        {
+            "name": "Mohali",
+            "path": "property-location/mohali"
+        },
+        {
+            "name": "Ahmedabad",
+            "path": "property-location/ahmedabad"
+        },
+        {
+            "name": "Coimbatore",
+            "path": "property-location/coimbatore"
+        },
+        {
+            "name": "Goa",
+            "path": "property-location/goa"
+        },
+        {
+            "name": "Sonipat",
+            "path": "property-location/sonipet"
+        },
+        {
+            "name": "Gurgaon",
+            "path": "property-location/gurgaon"
+        },
+        {
+            "name": "Pune",
+            "path": "property-location/pune"
+        },
+        {
+            "name": "Ghaziabad",
+            "path": "property-location/ghaziabad"
+        },
+        {
+            "name": "Thane",
+            "path": "property-location/thane"
+        },
+        {
+            "name": "Jaipur",
+            "path": "property-location/jaipur"
+        },
+        {
+            "name": "Kolkata",
+            "path": "property-location/kolkata"
+        },
+        {
+            "name": "Zirakpur",
+            "path": "property-location/zirakpur"
+        },
+        {
+            "name": "Bhiwadi",
+            "path": "property-location/bhiwadi"
+        },
+        {
+            "name": "Bhopal",
+            "path": "property-location/bhopal"
+        },
+        {
+            "name": "Surat",
+            "path": "property-location/surat"
+        },
+        {
+            "name": "Mumbai",
+            "path": "property-location/mumbai"
+        },
+        {
+            "name": "Lucknow",
+            "path": "property-location/lucknow"
+        },
+        {
+            "name": "Chennai",
+            "path": "property-location/chennai"
+        },
+        {
+            "name": "Hyderabad",
+            "path": "property-location/hyderabad"
+        },
+        {
+            "name": "Faridabad",
+            "path": "property-location/faridabad"
+        },
+        {
+            "name": "Nagpur",
+            "path": "property-location/nagpur"
+        },
+        {
+            "name": "Indore",
+            "path": "property-location/indore"
+        },
+        {
+            "name": "Raipur",
+            "path": "property-location/raipur"
+        },
+        {
+            "name": "Dehradun",
+            "path": "property-location/dehradun"
+        }
+    ],
+    "TopCitiesToRent": [
+        {
+            "name": "Bangalore",
+            "path": "property-location/bangalore"
+        },
+        {
+            "name": "Delhi",
+            "path": "property-location/delhi"
+        },
+        {
+            "name": "Noida",
+            "path": "property-location/noida"
+        },
+        {
+            "name": "Greater Noida",
+            "path": "property-location/greater-noida"
+        },
+        {
+            "name": "Navi Mumbai",
+            "path": "property-location/navimumbai"
+        },
+        {
+            "name": "Mohali",
+            "path": "property-location/mohali"
+        },
+        {
+            "name": "Ahmedabad",
+            "path": "property-location/ahmedabad"
+        },
+        {
+            "name": "Coimbatore",
+            "path": "property-location/coimbatore"
+        },
+        {
+            "name": "Goa",
+            "path": "property-location/goa"
+        },
+        {
+            "name": "Sonipat",
+            "path": "property-location/sonipet"
+        },
+        {
+            "name": "Gurgaon",
+            "path": "property-location/gurgaon"
+        },
+        {
+            "name": "Pune",
+            "path": "property-location/pune"
+        },
+        {
+            "name": "Ghaziabad",
+            "path": "property-location/ghaziabad"
+        },
+        {
+            "name": "Thane",
+            "path": "property-location/thane"
+        },
+        {
+            "name": "Jaipur",
+            "path": "property-location/jaipur"
+        },
+        {
+            "name": "Kolkata",
+            "path": "property-location/kolkata"
+        },
+        {
+            "name": "Zirakpur",
+            "path": "property-location/zirakpur"
+        },
+        {
+            "name": "Bhiwadi",
+            "path": "property-location/bhiwadi"
+        },
+        {
+            "name": "Bhopal",
+            "path": "property-location/bhopal"
+        },
+        {
+            "name": "Surat",
+            "path": "property-location/surat"
+        },
+        {
+            "name": "Mumbai",
+            "path": "property-location/mumbai"
+        },
+        {
+            "name": "Lucknow",
+            "path": "property-location/lucknow"
+        },
+        {
+            "name": "Chennai",
+            "path": "property-location/chennai"
+        },
+        {
+            "name": "Hyderabad",
+            "path": "property-location/hyderabad"
+        },
+        {
+            "name": "Faridabad",
+            "path": "property-location/faridabad"
+        },
+        {
+            "name": "Nagpur",
+            "path": "property-location/nagpur"
+        },
+        {
+            "name": "Indore",
+            "path": "property-location/indore"
+        },
+        {
+            "name": "Raipur",
+            "path": "property-location/raipur"
+        },
+        {
+            "name": "Dehradun",
+            "path": "property-location/dehradun"
+        }
+    ],
+    "NewProjectByCity": [
+        {
+            "name": "Bangalore",
+            "path": "property-location/bangalore"
+        },
+        {
+            "name": "Delhi",
+            "path": "property-location/delhi"
+        },
+        {
+            "name": "Noida",
+            "path": "property-location/noida"
+        },
+        {
+            "name": "Greater Noida",
+            "path": "property-location/greater-noida"
+        },
+        {
+            "name": "Navi Mumbai",
+            "path": "property-location/navimumbai"
+        },
+        {
+            "name": "Mohali",
+            "path": "property-location/mohali"
+        },
+        {
+            "name": "Ahmedabad",
+            "path": "property-location/ahmedabad"
+        },
+        {
+            "name": "Coimbatore",
+            "path": "property-location/coimbatore"
+        },
+        {
+            "name": "Goa",
+            "path": "property-location/goa"
+        },
+        {
+            "name": "Sonipat",
+            "path": "property-location/sonipet"
+        },
+        {
+            "name": "Gurgaon",
+            "path": "property-location/gurgaon"
+        },
+        {
+            "name": "Pune",
+            "path": "property-location/pune"
+        },
+        {
+            "name": "Ghaziabad",
+            "path": "property-location/ghaziabad"
+        },
+        {
+            "name": "Thane",
+            "path": "property-location/thane"
+        },
+        {
+            "name": "Jaipur",
+            "path": "property-location/jaipur"
+        },
+        {
+            "name": "Kolkata",
+            "path": "property-location/kolkata"
+        },
+        {
+            "name": "Zirakpur",
+            "path": "property-location/zirakpur"
+        },
+        {
+            "name": "Bhiwadi",
+            "path": "property-location/bhiwadi"
+        },
+        {
+            "name": "Bhopal",
+            "path": "property-location/bhopal"
+        },
+        {
+            "name": "Surat",
+            "path": "property-location/surat"
+        },
+        {
+            "name": "Mumbai",
+            "path": "property-location/mumbai"
+        },
+        {
+            "name": "Lucknow",
+            "path": "property-location/lucknow"
+        },
+        {
+            "name": "Chennai",
+            "path": "property-location/chennai"
+        },
+        {
+            "name": "Hyderabad",
+            "path": "property-location/hyderabad"
+        },
+        {
+            "name": "Faridabad",
+            "path": "property-location/faridabad"
+        },
+        {
+            "name": "Nagpur",
+            "path": "property-location/nagpur"
+        },
+        {
+            "name": "Indore",
+            "path": "property-location/indore"
+        },
+        {
+            "name": "Raipur",
+            "path": "property-location/raipur"
+        },
+        {
+            "name": "Dehradun",
+            "path": "property-location/dehradun"
+        }
+    ],
+    "AgentsInTopCities": [
+        {
+            "name": "Bangalore",
+            "path": "property-location/bangalore"
+        },
+        {
+            "name": "Delhi",
+            "path": "property-location/delhi"
+        },
+        {
+            "name": "Noida",
+            "path": "property-location/noida"
+        },
+        {
+            "name": "Greater Noida",
+            "path": "property-location/greater-noida"
+        },
+        {
+            "name": "Navi Mumbai",
+            "path": "property-location/navimumbai"
+        },
+        {
+            "name": "Mohali",
+            "path": "property-location/mohali"
+        },
+        {
+            "name": "Ahmedabad",
+            "path": "property-location/ahmedabad"
+        },
+        {
+            "name": "Coimbatore",
+            "path": "property-location/coimbatore"
+        },
+        {
+            "name": "Goa",
+            "path": "property-location/goa"
+        },
+        {
+            "name": "Sonipat",
+            "path": "property-location/sonipet"
+        },
+        {
+            "name": "Gurgaon",
+            "path": "property-location/gurgaon"
+        },
+        {
+            "name": "Pune",
+            "path": "property-location/pune"
+        },
+        {
+            "name": "Ghaziabad",
+            "path": "property-location/ghaziabad"
+        },
+        {
+            "name": "Thane",
+            "path": "property-location/thane"
+        },
+        {
+            "name": "Jaipur",
+            "path": "property-location/jaipur"
+        },
+        {
+            "name": "Kolkata",
+            "path": "property-location/kolkata"
+        },
+        {
+            "name": "Zirakpur",
+            "path": "property-location/zirakpur"
+        },
+        {
+            "name": "Bhiwadi",
+            "path": "property-location/bhiwadi"
+        },
+        {
+            "name": "Bhopal",
+            "path": "property-location/bhopal"
+        },
+        {
+            "name": "Surat",
+            "path": "property-location/surat"
+        },
+        {
+            "name": "Mumbai",
+            "path": "property-location/mumbai"
+        },
+        {
+            "name": "Lucknow",
+            "path": "property-location/lucknow"
+        },
+        {
+            "name": "Chennai",
+            "path": "property-location/chennai"
+        },
+        {
+            "name": "Hyderabad",
+            "path": "property-location/hyderabad"
+        },
+        {
+            "name": "Faridabad",
+            "path": "property-location/faridabad"
+        },
+        {
+            "name": "Nagpur",
+            "path": "property-location/nagpur"
+        },
+        {
+            "name": "Indore",
+            "path": "property-location/indore"
+        },
+        {
+            "name": "Raipur",
+            "path": "property-location/raipur"
+        },
+        {
+            "name": "Dehradun",
+            "path": "property-location/dehradun"
+        }
+    ]
+}
