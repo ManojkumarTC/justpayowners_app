@@ -10,7 +10,7 @@ import Swal from "sweetalert2";
 import getUserDetails from "../common/user/getUserDetail";
 
 
-/*import '../../src/assets/css/MyProfile.css'*/
+import '../../src/assets/css/MyProfile.css'
 
 
 const MyProfile = function () {

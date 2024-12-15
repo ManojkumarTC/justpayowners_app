@@ -9,24 +9,19 @@ const HeaderLink = ({ propsProfile = false }) => {
 
 		  <header className="rt-header sticky-on">
               <div id="sticky-placeholder"></div>
-              <div id="navbar-wrap" className="header-menu menu-layout1 header-menu menu-layout3">
+              <div id="navbar-wrap" className="header-menu menu-layout1 header-menu menu-layout3 pt-0">
                       <div className="row d-flex align-items-center">
-                          <div className="col-xl-2 col-lg-2">
+                        <div className="col-xl-8 col-lg-8 d-flex align-items-center position-static">
+                        <div className="col-xl-2 col-lg-2">
                               <div className="logo-area">
                                 <SiteLogo />
-                                <LocationListing />
                               </div>
                         </div>
-
-
-                        <div className="col-xl-6 col-lg-6 d-flex justify-content-center position-static">
-
                             <MenuLink />
                               
                           </div>
-
-
                         <div className="col-xl-4 col-lg-4 d-flex justify-content-end">
+                        <LocationListing />
                             {showResults ? null : <HeaderButtons />}
                             {showResults ? <> <UserNotification /> <UserProfileControls /> </> : null}
                         </div>

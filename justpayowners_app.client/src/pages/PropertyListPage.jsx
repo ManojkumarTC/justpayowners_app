@@ -68,6 +68,7 @@ const PropertyListDetails = ({ Category, AdType }) => {
         if (dataFetchedRef.current) return;
         dataFetchedRef.current = true;
         fetchPropertiesByStatus(0);
+        $("select").niceSelect();
     }, []);
 
     const handleSubmit = async (filterState, e) => {

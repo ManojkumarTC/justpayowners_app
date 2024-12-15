@@ -479,11 +479,13 @@ li.dropdown.submenu-level1 {
 }
 
 .location-dropdown.loc_menu {
-    left: 2px;
+    left: auto !important;
+    right: 0;
 }
 
 .location-dropdown-inner:before {
-    left: 30px;
+    left: auto !important;
+    right: 45px;
 }
 
 #mobile-menu ul.main-menu__dropdown.sub-menu .sub-menu {
@@ -526,4 +528,16 @@ footer.footer-area .footer-bottom {
     .copyright-area1 span {
         display: block;
     }
+}
+
+.set_location.position-relative {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.set_location .city{
+    height: max-content;
+    border: 1px solid black;
+    padding: 10px;
 }

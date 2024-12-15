@@ -30,7 +30,7 @@ const LocationListing = () => {
     }
 
     return (
-        <div className="set_location position-relative mt-3">
+        <div className="set_location position-relative">
             <a className="city" title="All India" onClick={handleLocationMenu}>
                 <FaLocationDot style={{ marginRight: '5px' }} />
                 <span className="d-inline">
