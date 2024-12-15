@@ -92,23 +92,24 @@ const MyFavorites = function () {
 
     return (<>
 
-        <main className="site-main content-area">
+        <section className="grid-wrap3">
             <div className="container">
                 <div className="row">
                     <div className="col-lg-12 col-sm-12 col-12">
                         <div className="page-content-block">
-                            <div className="col-md-12 rtcl-login-form-wrap">
+                            <div className="col-md-12">
 
                                 
-                                <div id="your-properties" className="my-3 my-md-3">
+                                
                                     <div className="container">
                                        {/* <SectionTitle title="Advertise With Us" path="/AdvertiseWithUs" type="breadcrumb" />*/}
                                         <div className="row row-cards">
                                             <MyDashboardNav />
                                             <div className="col-lg-10" id="tab-section-right">
                                                 <div className="card m-0 p-4">
-                                                    
-                                                        <h5 className="card-title">You have already posted {advertiseData.length} properties on Justpayowners</h5>
+                                                <div className="card-body row">
+                                                    <h3 className="widget-subtitle">You have already posted {advertiseData.length} properties on Justpayowners</h3> 
+                                                      
 
                                                    
                                                     <div className="widget widget-taglist" >
@@ -172,16 +173,16 @@ const MyFavorites = function () {
                                                     </div>
                                                 </div>
                                             </div>
+                                            </div>
                                         </div>
                                     </div >
-                                </div >
-
+                                
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </main>
+        </section>
 
         
     </>

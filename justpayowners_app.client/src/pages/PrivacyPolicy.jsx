@@ -7,12 +7,12 @@ import { NavLink, Link } from 'react-router-dom';
 const PrivacyPolicy = function () {
     console.log("PrivacyPolicy- Render")
     return (<>
-        <main className="site-main content-area">
+        <section className="grid-wrap3">
             <div className="container">
                 <div className="row">
                     <div className="col-lg-12 col-sm-12 col-12">
                         <div className="page-content-block">
-                            <div className="col-md-12 rtcl-login-form-wrap">
+                            <div className="col-md-12">
                                 <h4>About us</h4>
 
 
@@ -23,7 +23,7 @@ const PrivacyPolicy = function () {
                     </div>
                 </div>
             </div>
-        </main>      
+        </section>      
     </>
     );
 };

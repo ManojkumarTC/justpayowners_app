@@ -3,7 +3,7 @@ import { SectionTitle, PostPropertyForm ,WhatWeDoDashboard } from "../components
 function PostProperty(props) {
     return (
        
-        <main className="site-main content-area">
+        <section className="grid-wrap3">
 
             <div className="container">
                 <div className="row gutters-40">
@@ -24,7 +24,7 @@ function PostProperty(props) {
                 </div>
             </div>
 
-        </main>
+        </section>
 
       
 

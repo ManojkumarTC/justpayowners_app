@@ -5,7 +5,7 @@ import moment from 'moment';
 const BlogPostDetails = function ({ blogDetails, blogPosts }) {
     console.log("blogDetails")
     return (<>
-        <section className="blog-wrap6">
+        <section className="grid-wrap3">
             <div className="container">
                 <div className="row gutters-40">
                     <div className="col-lg-8">

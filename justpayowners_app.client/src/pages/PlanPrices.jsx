@@ -9,7 +9,7 @@ import { NavLink, Link } from 'react-router-dom';
 const PlanPrices = function () {
     console.log("PlanPrices- Render")
     return (<>
-        <section className="pricing-wrap1">
+        <section className="grid-wrap3">
             <div className="container">
                 <div className="item-heading-center mb-20">
                     <span className="section-subtitle">Price Table</span>
