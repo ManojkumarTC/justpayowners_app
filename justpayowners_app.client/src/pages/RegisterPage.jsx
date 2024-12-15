@@ -69,12 +69,12 @@ function RegisterPage(props) {
     return (
 
 
-        <main className="site-main content-area">
+        <section className="grid-wrap3">
         <div className="container">
             <div className="row">
                 <div className="col-lg-6 col-sm-12 col-12">
                     <div className="page-content-block">
-                        <div className="col-md-12 rtcl-login-form-wrap">
+                            <div className="col-md-12 rtcl-login-form-wrap" >
                             <h2>Register</h2>
                                 <form className="rtcl-login-form" onSubmit={handleSubmit(onSubmit)}>
                    
@@ -180,7 +180,7 @@ function RegisterPage(props) {
                 </div>
             </div>
         </div>
-    </main>
+        </section>
     
     );
 }

@@ -63,7 +63,7 @@ function LoginPage() {
 
 	return (
 
-   <main className="site-main content-area">
+		<section className="grid-wrap3">
         <div className="container">
             <div className="row">
                 <div className="col-lg-6 col-sm-12 col-12">
@@ -134,7 +134,7 @@ function LoginPage() {
                 </div>
             </div>
         </div>
-    </main>
+		</section>
 		);
 }
 

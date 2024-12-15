@@ -95,7 +95,7 @@ const Blog = function () {
     return (<>
 
 
-        <section className="blog-wrap5">
+        <section className="grid-wrap3">
             <div className="container">
                 <div className="row gutters-40">
                     <div className="col-lg-8">
