@@ -2154,7 +2154,7 @@ nav.template-main-menu > ul > li:hover .template-mega-menu {
   }
 }
 .header-menu.menu-layout3 nav.template-main-menu > ul > li > a {
-  padding: 35px 18px;
+  padding: 35px 15px;
 }
 @media only screen and (max-width: 1199px) {
   .header-menu.menu-layout3 nav.template-main-menu > ul > li > a {

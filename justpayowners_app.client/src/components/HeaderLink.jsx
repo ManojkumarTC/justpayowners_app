@@ -11,7 +11,7 @@ const HeaderLink = ({ propsProfile = false }) => {
               <div id="sticky-placeholder"></div>
               <div id="navbar-wrap" className="header-menu menu-layout1 header-menu menu-layout3 pt-0">
                       <div className="row d-flex align-items-center">
-                        <div className="col-xl-8 col-lg-8 d-flex align-items-center position-static">
+                        <div className="col-xl-7 col-lg-7 d-flex align-items-center position-static p-0">
                         <div className="col-xl-2 col-lg-2">
                               <div className="logo-area">
                                 <SiteLogo />
