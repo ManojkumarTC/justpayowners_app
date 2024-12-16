@@ -5,6 +5,9 @@ import {   PropertyInformation, LatestProperties, PropertyOverview, PropertyAmen
 import JPOapi from "../common";
 import { useParams } from "react-router";
 import moment from 'moment'
+
+/*import FavoritesModel from '../../common/Favorites/FavoritesModel';*/
+
 const PropertyDetails = ({ AdvertisementCategory, AdvertisementType }) => {
     const params = useParams();
     const [property, setProperties] = useState([]);
@@ -58,6 +61,23 @@ const PropertyDetails = ({ AdvertisementCategory, AdvertisementType }) => {
     }
     const getPropertyData = JSON.parse(property.propertyObject);
 
+
+    const handleFavorites = () => {
+        //let url = JPOapi.FavoritesModel.url
+        //let type = "Favorite"
+        //const FavoriteModelData = FavoritesModel.properties;
+        //FavoriteModelData.PropertyID = data.FullName
+        //FavoriteModelData.UserID = data.Email
+        //FavoriteModelData.Note = data.MobileNumber
+        //FavoriteModelData.Remark = PropertyId
+        //FavoriteModelData.Status = userId;
+        //FavoriteModelData.CreatedAt = new Date().toISOString();
+        //FavoriteModelData.UpdatedAt = new Date().toISOString();     
+
+       
+    };
+
+    
     return (
         <>
 
@@ -111,10 +131,10 @@ const PropertyDetails = ({ AdvertisementCategory, AdvertisementType }) => {
                                         <div className="side-button">
                                             <ul>
                                                 <li>
-                                                    <a href="with-sidebar2.html" className="side-btn"><i className="flaticon-share"></i></a>
+                                                    <a href="#" className="side-btn"><i className="flaticon-share"></i></a>
                                                 </li>
                                                 <li>
-                                                    <a href="with-sidebar2.html" className="side-btn"><i className="flaticon-heart"></i></a>
+                                                    <a href="#" onClick={() => handleFavorites ()}  className="side-btn"><i className="flaticon-heart"></i></a>
                                                 </li>
 
 

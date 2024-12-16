@@ -10,7 +10,7 @@ import Swal from "sweetalert2";
 import getUserDetails from "../common/user/getUserDetail";
 
 
-/*import '../../src/assets/css/MyProfile.css'*/
+import '../../src/assets/css/MyProfile.css'
 
 
 const MyProfile = function () {
@@ -81,8 +81,8 @@ const MyProfile = function () {
                     <div className="col-lg-12 col-sm-12 col-12">
                         <div className="page-content-block">
                             <div className="col-md-12">
+
                                
-                              
                                     <div className="container">
                                         {/*<SectionTitle title="Advertise With Us" path="/AdvertiseWithUs" type="breadcrumb" />*/}
 
@@ -91,54 +91,53 @@ const MyProfile = function () {
                                             <div className="col-lg-10" id="tab-section-right">
                                                 <div className="card m-0 p-4">
                                                     <div className="card-body row">
-                                                        <h3 className="widget-subtitle">My Profile</h3>   
-                                                        <div className="alert alert-info mt-2" role="alert">
-                                                            <strong>Note:-</strong> If you have any inquiries, please share details about your business with us. Our team of experts will thoroughly assess your needs and reach out to provide information on how RealEstateIndia.com can assist you in obtaining quotes for your business.
-                                                        </div>
-                                                        <div className="card-body ">
-                                                            <form id="rtcl-login-form" onSubmit={handleSubmit(onSubmit)}>
+                                                        <h3 className="widget-subtitle">Edit Your profile</h3>   
+                                                 
 
-                                                                <div className="form-group">
-                                                                    <label className="control-label">Name<strong className="rtcl-required">*</strong> </label>
-                                                                    <input type="text" className="form-control" value={profile.FullName} placeholder="Full Name" name='FullName' onChange={e => optionchanged(e, "FullName")} id="FullName" />
+                                                    <div className="alert alert-info mt-4" role="alert">
+                                                        <strong>Note:-</strong> If you have any inquiries, please share details about your business with us. Our team of experts will thoroughly assess your needs and reach out to provide information on how RealEstateIndia.com can assist you in obtaining quotes for your business.
+                                                    </div>
+                                                    <div className="card-body ">
+                                                        <form id="rtcl-login-form" onSubmit={handleSubmit(onSubmit)}>
 
-                                                                </div>
-                                                                <div className="form-group">
-                                                                    <label className="control-label">E-Mail<strong className="rtcl-required">*</strong> </label>
-                                                                    <input type="text" className="form-control" placeholder="E-mail ID" name='Email' value={profile.Email}
-                                                                        onChange={e => optionchanged(e, "Email")} id="Email" />
-                                                                </div>
+                                                            <div className="form-group">
+                                                                <label className="control-label">Name<strong className="rtcl-required">*</strong> </label>
+                                                                <input type="text" className="form-control" value={profile.FullName} placeholder="Full Name" name='FullName' onChange={e => optionchanged(e, "FullName")} id="FullName" />
 
-                                                                <div className="form-group">
-                                                                    <label className="control-label">Mobile Phone<strong className="rtcl-required">*</strong> </label>
-                                                                    <div>{profile.MobileNumber}</div>
-                                                                </div>
+                                                            </div>
+                                                            <div className="form-group">
+                                                                <label className="control-label">E-Mail<strong className="rtcl-required">*</strong> </label>
+                                                                <input type="text" className="form-control" placeholder="E-mail ID" name='Email' value={profile.Email}
+                                                                    onChange={e => optionchanged(e, "Email")} id="Email" />
+                                                            </div>
 
-                                                                <div className="form-group d-flex align-items-center">
-                                                                    <button type="button" className="btn btn-primary btn-space">Cancel</button>
-                                                                    <button type="submit" className="btn btn-primary btn-space">Submit</button>
-                                                                </div>
+                                                            <div className="form-group">
+                                                                <label className="control-label">Mobile Phone<strong className="rtcl-required">*</strong> </label>
+                                                                <div>{profile.MobileNumber}</div>
+                                                            </div>
 
-                                                            </form>
+                                                            <div className="form-group d-flex align-items-center">
+                                                                <button type="button" className="btn btn-primary btn-space">Cancel</button>
+                                                                <button type="submit" className="btn btn-primary btn-space">Submit</button>
+                                                            </div>
+
+                                                        </form>
                                                         </div>
                                                     </div>
-                                                   
-                                                  
-                                                    
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                
-
                                
+
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        
+
     </>
     );
 };

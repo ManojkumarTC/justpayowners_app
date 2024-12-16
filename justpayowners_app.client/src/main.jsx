@@ -12,7 +12,9 @@ import './App.css';
 
 import './assets/css/all.min.css';
 import './assets/css/style.css';
-
+import '../node_modules/jquery-nice-select/js/jquery.js'
+import '../node_modules/jquery-nice-select/js/jquery.nice-select.js'
+import '../node_modules/jquery-nice-select/css/nice-select.css'
 
 import App from './App.jsx'
 //import '../assets/css/index-7916c2b0.css';

@@ -29,43 +29,38 @@ const QuickLinks = function ({ json }) {
         return () => {
             // Cleanup if necessary
         };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [json]); // Make sure dependencies are correctly set
 
     return (<>
         <div className="footer-top">
-            <div className="container">
-                <div className="row justify-content-between">
+            <div className="row justify-content-between">
 
-                    {structuredNavData != undefined && structuredNavData.navbar.map((item, index) => {
-                        return (
-                            <div className="col-xl-2 col-lg-2 col-md-6 col-sm-6" key={index}>
-                                <div className="footer-link">
-                                    <div className="footer-title">
-                                        <h3>{item.text}</h3>
-                                    </div>
-                                    <div className="item-link">
-                                <ul >
-                                    {item.menu && item.menu.map((itemsub, subindex) => {
-                                        return (
-                                            <li key={subindex}>
-                                                <NavLink to={itemsub.url}>{itemsub.text}</NavLink>
-                                            </li>
-                                        );
-                                    })}
+                {structuredNavData != undefined && structuredNavData.navbar.map((item, index) => {
+                    return (
+                        <div className="col-xl-2 col-lg-2 col-md-6 col-sm-6" key={index}>
+                            <div className="footer-link">
+                                <div className="footer-title">
+                                    <h3>{item.text}</h3>
+                                </div>
+                                <div className="item-link">
+                                    <ul >
+                                        {item.menu && item.menu.map((itemsub, subindex) => {
+                                            return (
+                                                <li key={subindex}>
+                                                    <NavLink to={itemsub.url}>{itemsub.text}</NavLink>
+                                                </li>
+                                            );
+                                        })}
                                     </ul>
                                 </div>
-                                </div>
                             </div>
-                        );
-                    })}                   
-                </div>
+                        </div>
+                    );
+                })}
             </div>
         </div>
     </>
     );
 };
 export default QuickLinks;
-
-
-

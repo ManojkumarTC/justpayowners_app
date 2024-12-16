@@ -68,6 +68,7 @@ const PropertyListDetails = ({ Category, AdType }) => {
         if (dataFetchedRef.current) return;
         dataFetchedRef.current = true;
         fetchPropertiesByStatus(0);
+        $("select").niceSelect();
     }, []);
 
     const handleSubmit = async (filterState, e) => {
@@ -148,7 +149,7 @@ const PropertyListDetails = ({ Category, AdType }) => {
 
                                 <PropertyFilter handleSubmit={handleSubmit} Category={Category} fetchPropertiesByStatus={fetchPropertiesByStatus} setPagination={setPagination} />
 
-                               
+
                             </div>
 
                             <div className="widget widget-listing-box1">
@@ -221,7 +222,7 @@ const PropertyListDetails = ({ Category, AdType }) => {
                                     </div>
 
                                     <div className="shorting-title">
-                                       </div>
+                                    </div>
                                 </div>
                             </div>
 
@@ -233,7 +234,7 @@ const PropertyListDetails = ({ Category, AdType }) => {
 
 
 
-                                            
+
 
 
 
