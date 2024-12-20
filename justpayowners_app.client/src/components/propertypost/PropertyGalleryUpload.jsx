@@ -185,7 +185,7 @@ const PropertyGalleryUpload = ({ tabItems, setSideNavTabs, isSale, isCommercial,
     }
 
     return (
-        <div className="card-body p-3 px-0">
+        <div id="property-gallery-upload" className="card-body p-3 px-0">
             <div className="row">
                 <form className="dropzone dz-clickable pl-0 pr-5" method="post" action="#" encType="multipart/form-data" id="dropzone-custom" onSubmit={handleSubmit(onSubmit)}  >
 

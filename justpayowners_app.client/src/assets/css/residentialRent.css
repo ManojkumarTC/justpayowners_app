@@ -443,3 +443,27 @@ input.form-check-input {
 .property-box4 .item-content-property .react-icon li {
     margin-right: 10px;
 }
+
+
+#property-gallery-upload .card-title {
+    font-size: 16px;
+}
+
+.card-footer button {
+    margin-right: 15px;
+}
+
+
+.selectgroup-item .selectgroup-input {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.custom-checkbox .custom-control-input {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.custom-control-input {
+    margin-right: 10px;
+}

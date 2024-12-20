@@ -194,7 +194,7 @@ const PostPropertyForm = () => {
                                         <div className="col-12  py-3 plans" >
 
                                             <label className="plan basic-plan"  style={getButtonStyle('ResidentialRent')} onClick={() => handleSetValue('ResidentialRent')} >
-                                                <input checked type="radio" name="ResidentialRent" id="ResidentialRent" />
+                                                <input checked type="radio" name="ResidentialType" id="ResidentialRent" />
                                                 <div className="plan-content">
                                                     <img loading="lazy" src="https://raw.githubusercontent.com/ismailvtl/ismailvtl.github.io/master/images/life-saver-img.svg" alt="" />
                                                     <div className="plan-details">
@@ -205,7 +205,7 @@ const PostPropertyForm = () => {
                                             </label>
 
                                             <label className="plan complete-plan"  style={getButtonStyle('ResidentialSale')} onClick={() => handleSetValue('ResidentialSale')}>
-                                                <input type="radio" id="ResidentialSale" name="ResidentialSale" />
+                                                <input type="radio" id="ResidentialSale" name="ResidentialType" />
                                                 <div className="plan-content">
                                                     <img loading="lazy" src="https://raw.githubusercontent.com/ismailvtl/ismailvtl.github.io/master/images/potted-plant-img.svg" alt="" />
                                                     <div className="plan-details">
@@ -230,7 +230,7 @@ const PostPropertyForm = () => {
                                     <div className="col-12  py-3 plans" >
 
                                         <label className="plan basic-plan"  style={getButtonStyle('CommercialsRent')} onClick={() => handleSetValue('CommercialsRent')} >
-                                            <input checked type="radio" name="CommercialsRent" id="CommercialsRent" />
+                                            <input checked type="radio" name="CommercialsType" id="CommercialsRent" />
                                             <div className="plan-content">
                                                 <img loading="lazy" src="https://raw.githubusercontent.com/ismailvtl/ismailvtl.github.io/master/images/life-saver-img.svg" alt="" />
                                                 <div className="plan-details">
@@ -241,7 +241,7 @@ const PostPropertyForm = () => {
                                         </label>
 
                                         <label className="plan complete-plan"  style={getButtonStyle('CommercialsSale')} onClick={() => handleSetValue('CommercialsSale')}>
-                                            <input type="radio" id="CommercialsSale" name="CommercialsSale" />
+                                            <input type="radio" id="CommercialsSale" name="CommercialsType" />
                                             <div className="plan-content">
                                                 <img loading="lazy" src="https://raw.githubusercontent.com/ismailvtl/ismailvtl.github.io/master/images/potted-plant-img.svg" alt="" />
                                                 <div className="plan-details">
