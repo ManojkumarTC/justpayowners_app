@@ -19,7 +19,7 @@ const BlogPostDetails = function ({ blogDetails, blogPosts }) {
                                     <div className="item-content">
                                         <div className="entry-meta">
                                             <ul>
-                                                <li className="theme-cat"><a href="blog1.html"><img src="img/theme1.png" alt="theme" width="31" height="31" />{blogDetails.source}</a></li>
+                                                <li className="theme-cat"><a href="blog1.html"><img src="https://radiustheme.com/demo/html/homlisti/theme1.png" alt="theme" width="31" height="31" />{blogDetails.source}</a></li>
                                                 <li className="calendar-icon"><a href="blog1.html"><i className="far fa-calendar-alt"></i>{moment(blogDetails.publishDate).format("Do MMMM  YYYY")}</a></li>
                                                 <li><a href="#">Apartment, Room</a></li>
                                                 <li><a href="#">5 mins - {blogDetails.commentCount}</a></li>

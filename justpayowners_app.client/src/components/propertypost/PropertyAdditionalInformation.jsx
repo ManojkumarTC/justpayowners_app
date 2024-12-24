@@ -1,70 +1,118 @@
-import { useEffect, useState } from 'react'
-import { ToastContainer, toast } from 'react-toastify';
+import React, { useEffect } from "react";
+import ReactDOM from "react-dom";
+import ImageUploading from "react-images-uploading";
 import { useForm } from 'react-hook-form'
 import { useSelector } from 'react-redux'
 import { generatePath, useNavigate, useParams } from 'react-router-dom'
-import { PropertySubmitButton } from '../../components'
-import JPOapi from '../../common';
-import PropertyModel from '../../common/property/PropertyModel';
-import fetchAdvartiseData from '../../common/property/getPropertyAdvartiseData';
+import { useState } from 'react'
+import PropertySubmitButton from "./PropertySubmitButton";
+import JPOapi from "../../common";
+import PropertyModel from "../../common/property/PropertyModel";
+import { toast } from "react-toastify";
+import '../../assets/css/image-gallery.css'
+import fetchAdvartiseData from "../../common/property/getPropertyAdvartiseData";
+import Swal from 'sweetalert2';
 
-const PropertyAdditionalInformation = ({ tabItems, setSideNavTabs, isSale, isCommercial, islandorPlot, isResidential }) => {
+const PropertyGalleryUpload = ({ tabItems, setSideNavTabs, isSale, isCommercial, islandorPlot }) => {
 
     const { currentUser } = useSelector(state => state.user);
     const { userId } = useSelector(state => state.auth);
-    const { jsonPropertyControls } = useSelector(state => state.propertyCatalog);
-
-    const initialState = (!isCommercial && !islandorPlot) ? {
-        PropertyTax: "",
-        OccupancyCertificate: "",
-        KhataCertificate:"",
-        ReraApproved: "",
-        RERANumber: "",
-        SaleDeedCertificate: "",
-        ConversionCertificate: "",
-        EncumbranceCertificate: "",
-    } : (isCommercial ? (
-        {
-            PreviousOccupancy: ""
-        }
-    ) : ((islandorPlot || isResidential) && ({
-        KhataCertificate: "",
-        ReraApproved: "",
-        RERANumber: "",
-        SaleDeedCertificate: "",
-        ConversionCertificate: "",
-        EncumbranceCertificate: "",
-    })));
-    const [additionalInfo, setAdditionalInfo] = useState(initialState);
     const [formSubmitLoading, setFormSubmitLoading] = useState(false);
     const [propertyData, setPropertyData] = useState([]);
     const params = useParams();
-    const navigate = useNavigate();
+    const navigate = useNavigate()
     const { register, handleSubmit, getValues, reset, formState: { errors } } = useForm({
         mode: "onChange"
     });
 
+    const [images, setImages] = useState([]);
+    const [serverImages, setServerImages] = useState([]); // this is the images that are already uploaded to the server
+    const maxNumber = 12;
+
 
     useEffect(() => {
-        if (params.tabtitle == "additionalInfo") { // to get fresh data from server when tab is clicked
+        if (params.tabtitle == "gallery") { // to get fresh data from server when tab is clicked
             fetchAdvartiseData(params.guid, userId).then((data) => {
                 setPropertyData(data?.data);
                 if (data != null && data.data != null) {
-                    setAdditionalInfo(JSON.parse(data?.data?.propertyData).AdditionalInfo);
+                    setServerImages(JSON.parse(data?.data?.propertyData).GalleryDetails);
                 }
             });
         }
-    }, [params.tabtitle == "additionalInfo"]);
-
-    const optionchanged = (e, id) => {
-        setAdditionalInfo(select => ({ ...select, [id]: e.target.value }));
-    };
+    }, [params.tabtitle == "gallery"]);
 
     useEffect(() => {
-        if (additionalInfo) {
-            reset(additionalInfo);
+        if (serverImages) {
+            reset(serverImages);
         }
-    }, [additionalInfo]);
+    }, [serverImages]);
+
+
+
+    const onChange = async (imageList, addUpdateIndex) => {
+        if (imageList.length > maxNumber) {
+            Swal.fire({
+                title: 'You can only upload up to ' + maxNumber + ' images',
+                icon: 'error',
+                confirmButtonText: 'Ok'
+            });
+            setImages(imageList.slice(0, maxNumber));
+        } else {
+            setImages(imageList);
+        }
+    };
+
+
+
+    const onSubmit = handleSubmit(async (data) => {
+
+        if (images.length === 0 && serverImages.length === 0) {
+            alert("Please upload images");
+            return;
+        }
+
+        const formData1 = new FormData();
+        Array.from(images).forEach(file => {
+            formData1.append('files', file.file);
+            console.log(file);
+        });
+
+        try {
+            const response = await fetch((propertyData != null && Object.keys(propertyData).length > 0) ? JPOapi.uploadPhotos.url + "?propertyId=" + propertyData?.advertiseID : JPOapi.uploadPhotos.url, {
+                method: JPOapi.uploadPhotos.method,
+                body: formData1,
+            });
+
+            const result = await response.json();
+            console.log('File upload response:', result);
+            // loop through the images and take filePath and return it as an array
+            const images = result?.data?.map((item) => item.filePath);
+            console.log(images);
+
+            const propertyDataVal = JSON.parse(propertyData.propertyData);
+
+            const resaleObj = { GalleryDetails: serverImages != undefined ? [...serverImages, ...images] : [...images] };
+
+
+            const formData = PropertyModel.properties;
+            formData.propertyData = JSON.stringify({ ...propertyDataVal, ...resaleObj });
+            formData.advertiseID = params.guid;
+            formData.adType = isSale ? "Sale" : "Rent";
+            formData.propertyType = islandorPlot ? "LandOrPlot Sale" : isCommercial ? (isSale ? "Commercial Sale" : "Commercial Rent") : isSale ? "Residential Sale" : "Residential Rent";
+            formData.userID = currentUser.id;
+            formData.isActive = false;
+            formData.status = "Pending";
+            formData.listingStatus = "Listed";
+            formData.PropertyTitle = propertyData.propertyTitle;
+
+            console.log(formData);
+            await handleFormSubmit(formData);
+
+        } catch (error) {
+            console.error('Error uploading files:', error);
+        }
+    });
+
 
     const handleFormSubmit = async (data) => {
         try {
@@ -85,12 +133,13 @@ const PropertyAdditionalInformation = ({ tabItems, setSideNavTabs, isSale, isCom
                 toast.error(serverRes.message, {
                     autoClose: 2000,
                 })
-                setFormSubmitLoading(false);
+                setFormSubmitLoading(false)
             }
             else {
                 setFormSubmitLoading(false);
+
                 setSideNavTabs(tabItems.map((item, index) => {
-                    if (index === 6) {
+                    if ((isSale == true && index === 4) || index == 5) {
                         return { ...item, isDisabled: false }
                     }
                     return item
@@ -104,11 +153,11 @@ const PropertyAdditionalInformation = ({ tabItems, setSideNavTabs, isSale, isCom
                                 "/manage/property/residential/rent/:guid/:tabtitle",
                     {
                         ...params,       // <-- shallow copy in the existing param values
-                        tabtitle: "schedule", // <-- override the specific param values from state/etc
+                        tabtitle: isSale ? "additionalInfo" : "schedule", // <-- override the specific param values from state/etc
                     },
                 );
 
-                navigate(path + "?" + new URLSearchParams({ justpayFr: "pyp_schedule" }).toString());
+                navigate(path + "?" + new URLSearchParams({ justpayFr: isSale ? "pyp_additionalInfo" : "pyp_schedule" }).toString());
             }
 
         } catch (error) {
@@ -119,29 +168,6 @@ const PropertyAdditionalInformation = ({ tabItems, setSideNavTabs, isSale, isCom
         }
     }
 
-    const onSubmit = handleSubmit(async (data) => {
-        const propertyDataVal = JSON.parse(propertyData.propertyData);
-        console.log(propertyDataVal);
-
-        const addInfoObj = { AdditionalInfo: additionalInfo };
-        console.log(addInfoObj);
-
-        const formData = PropertyModel.properties;
-        formData.propertyData = JSON.stringify({ ...propertyDataVal, ...addInfoObj });
-        formData.advertiseID = params.guid;
-        formData.adType = isSale ? "Sale" : "Rent";
-        formData.propertyType = islandorPlot ? "LandOrPlot Sale" : isCommercial ? (isSale ? "Commercial Sale" : "Commercial Rent") : isSale ? "Residential Sale" : "Residential Rent";
-        formData.userID = currentUser.id;
-        formData.isActive = false;
-        formData.status = "Pending";
-        formData.PropertyTitle = propertyData.propertyTitle;
-        formData.listingStatus = "Listed";
-
-        console.log(formData);
-        await handleFormSubmit(formData);
-
-    });
-
     const handleBackButton = () => {
         const path = generatePath(
             islandorPlot ? "/manage/property/landorplot/sale/:guid/:tabtitle" :
@@ -151,247 +177,122 @@ const PropertyAdditionalInformation = ({ tabItems, setSideNavTabs, isSale, isCom
                         "/manage/property/residential/rent/:guid/:tabtitle",
             {
                 ...params,       // <-- shallow copy in the existing param values
-                tabtitle: isSale ? "gallery" : "amenities", // <-- override the specific param values from state/etc
+                tabtitle: "amenities", // <-- override the specific param values from state/etc
             },
         );
-        navigate(path + "?" + new URLSearchParams({ justpayFr: isSale ? "pyp_gallery" : "pyp_amenities" }).toString());
+
+        navigate(path + "?" + new URLSearchParams({ justpayFr: "pyp_amenities" }).toString());
     }
 
-
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="card-body p-3">
-                <div className="row">
+        <div id="property-gallery-upload" className="card-body p-3 px-0">
+            <div className="row">
+                <form className="dropzone dz-clickable pl-0 pr-5" method="post" action="#" encType="multipart/form-data" id="dropzone-custom" onSubmit={handleSubmit(onSubmit)}  >
 
-                    {(isResidential || islandorPlot) && <>
-                        <div className="col-sm-6 col-md-6">
-                            <div className="form-group">
-                                <label className="control-label">Do You have Khata Certificate?</label>
-                                <div className="row gutters-xs">
-                                    <div className="col-12">
-                                        <div className="input-group mb-3">
-                                            <select type="text" name='KhataCertificate' value={additionalInfo?.KhataCertificate} className="form-select" {...register("KhataCertificate", { required: false })} id="KhataCertificate"
-                                                onChange={e => optionchanged(e, "KhataCertificate")}>
-                                                <option value="" disabled> Select Khata Certificate</option>
-                                                {jsonPropertyControls?.KhataCertificate?.map((option, index) => (
-                                                    <option key={index} value={option}> {option}</option>
-                                                ))}
-                                            </select>
+                    <ImageUploading
+                        multiple
+                        value={images}
+                        onChange={onChange}
+                        //maxNumber={maxNumber}
+                        dataURLKey="data_url"
+                        acceptType={["jpg"]}
+                    >
+                        {({
+                            imageList,
+                            onImageUpload,
+                            onImageRemoveAll,
+                            onImageUpdate,
+                            onImageRemove,
+                            isDragging,
+                            dragProps
+                        }) => (
+                            // write your building UI
+                            <div className="upload__image-wrapper">
+                                <div className="card">
+                                    <div className="card-body text-center">
+                                        <div className="mb-4 text-center">
+                                            {/* <img src="" alt="Apple iPhone 7 128GB" className="img-fluid" /> */}
                                         </div>
-                                        {errors.KhataCertificate && <span className="formError errorMssg" style={{ color: 'red' }}> khata certificate required</span>}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="col-sm-6 col-md-6">
-                            <div className="form-group">
-                                <label className="control-label">Is the property RERA Approved?</label>
-                                <div className="input-group mb-3">
-                                    <select type="text" name='ReraApproved' value={additionalInfo?.ReraApproved} className="form-select" {...register("ReraApproved", { required: false })} id="ReraApproved"
-                                        onChange={e => optionchanged(e, "ReraApproved")}>
-                                        <option value="" disabled> Select RERA Approved</option>
-                                        {jsonPropertyControls?.RERAApproved?.map((option, index) => (
-                                            <option key={index} value={option}> {option}</option>
-                                        ))}
-                                    </select>
-
-                                    {(additionalInfo?.ReraApproved === 'yes' || additionalInfo?.ReraApproved === 'Yes') && (
-                                    <div className="input-group-append">
-                                        <span className="input-group-text" id="basic-addon2">
-                                            <input type="text" className="form-control" placeholder="RERA Number" id="RERANumber" name="RERANumber" value={additionalInfo?.RERANumber}
-                                                {...register("RERANumber", { required: true, onChange: e => optionchanged(e, "RERANumber") })} />
-                                        </span>
-                                    </div>
-                                      )}
-                                </div>
-                            </div>
-                            {errors.ReraApproved && <span className="formError errorMssg" style={{ color: 'red' }}> rera approved required</span>}
-                        </div>
-                        <div className="col-sm-6 col-md-6">
-                            <div className="form-group">
-                                <label className="control-label">Do You have Sale Deed Certificate?</label>
-                                <div className="input-group mb-3">
-                                    <select type="text" name='SaleDeedCertificate' value={additionalInfo?.SaleDeedCertificate} className="form-select" {...register("SaleDeedCertificate", { required: false })} id="SaleDeedCertificate"
-                                        onChange={e => optionchanged(e, "SaleDeedCertificate")}>
-                                        <option value="" disabled> Select Sale Deed Certificate</option>
-                                        {jsonPropertyControls?.SaleDeedCertificate?.map((option, index) => (
-                                            <option key={index} value={option}> {option}</option>
-                                        ))}
-                                    </select>
-                                </div>
-                            </div>
-                            {errors.SaleDeedCertificate && <span className="formError errorMssg" style={{ color: 'red' }}> sale deed certificate required</span>}
-                        </div>
-                        <div className="col-sm-6 col-md-6">
-                            <div className="form-group">
-                                <label className="control-label">Do you have Conversion certificate?</label>
-                                <div className="input-group mb-3">
-                                    <select type="text" name='ConversionCertificate' value={additionalInfo?.ConversionCertificate} className="form-select" {...register("ConversionCertificate", { required: false })} id="ConversionCertificate"
-                                        onChange={e => optionchanged(e, "ConversionCertificate")}>
-                                        <option value="" disabled> Select Conversion Certificate</option>
-                                        {jsonPropertyControls?.ConversionCertificate?.map((option, index) => (
-                                            <option key={index} value={option}> {option}</option>
-                                        ))}
-                                    </select>
-                                </div>
-                            </div>
-                            {errors.ConversionCertificate && <span className="formError errorMssg" style={{ color: 'red' }}> coversion certificate required</span>}
-                        </div>
-                        <div className="col-sm-6 col-md-6">
-                            <div className="form-group">
-                                <label className="control-label">Do you have Encumbrance certificate?</label>
-                                <div className="input-group mb-3">
-                                    <select type="text" name='EncumbranceCertificate' value={additionalInfo?.EncumbranceCertificate} className="form-select" {...register("EncumbranceCertificate", { required: false })} id="EncumbranceCertificate"
-                                        onChange={e => optionchanged(e, "EncumbranceCertificate")}>
-                                        <option value="" disabled> Select Encumbrance Certificate</option>
-                                        {jsonPropertyControls?.EncumbranceCertificate?.map((option, index) => (
-                                            <option key={index} value={option}> {option}</option>
-                                        ))}
-                                    </select>
-                                </div>
-                            </div>
-                            {errors.EncumbranceCertificate && <span className="formError errorMssg" style={{ color: 'red' }}> encumbrance certificate required</span>}
-                        </div>
-                    </>
-                    }
-                    {(isCommercial) && <>
-                        <div className="col-sm-6 col-md-6">
-                            <div className="form-group">
-                                <label className="control-label">Previous Occupancy</label>
-                                <div className="row gutters-xs">
-                                    <div className="col-12">
-                                        <div className="input-group mb-3">
-                                            <select type="text" name='PreviousOccupancy' value={additionalInfo?.PreviousOccupancy} className="form-select"
-                                                {...register("PreviousOccupancy", { required: false })} id="PreviousOccupancy"
-                                                onChange={e => optionchanged(e, "PreviousOccupancy")}>
-                                                <option value="" disabled> Select Previous Occupancy</option>
-                                                {jsonPropertyControls?.PreviousOccupancy?.map((option, index) => (
-                                                    <option key={index} value={option}> {option}</option>
-                                                ))}
-                                            </select>
+                                        <h4 className="card-title">Improve your interaction by including images to get five times more responses.</h4>
+                                        <div className="card-subtitle">
                                         </div>
-                                        {errors.PreviousOccupancy && <span className="formError errorMssg" style={{ color: 'red' }}> Previous Occupancy required</span>}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="row">
-                            <div className="col-sm-12 col-md-12">
-                                <div className="form-group">
-                                    <div className="row gutters-xs">
-                                        <div className="col-12">
-                                            <div className="mb-3">
-                                                <div className="control-label">Ideal For</div>
-                                                <select type="text" className="form-select tomselected ts-hidden-accessible" id="select-states" value="" multiple="multiple" tabindex="-1">
-                                                    <option value="AL">Alabama</option>
-                                                    <option value="AK">Alaska</option>
-                                                    <option value="AR">Arkansas</option>
-                                                    <option value="CA">California</option>
-                                                    <option value="CO">Colorado</option>
-                                                    <option value="CT">Connecticut</option>
-                                                    <option value="DE">Delaware</option>
-                                                    <option value="DC">District of Columbia</option>
-                                                    <option value="FL">Florida</option>
-                                                    <option value="GA">Georgia</option>
-                                                    <option value="HI">Hawaii</option>
-                                                    <option value="ID">Idaho</option>
-                                                    <option value="IL">Illinois</option>
-                                                    <option value="IN">Indiana</option>
-                                                    <option value="IA">Iowa</option>
-                                                    <option value="KS">Kansas</option>
-                                                    <option value="KY">Kentucky</option>
-                                                    <option value="LA">Louisiana</option>
-                                                    <option value="ME">Maine</option>
-                                                    <option value="MD">Maryland</option>
-                                                    <option value="MA">Massachusetts</option>
-                                                    <option value="MI">Michigan</option>
-                                                    <option value="MN">Minnesota</option>
-                                                    <option value="MS">Mississippi</option>
-                                                    <option value="MO">Missouri</option>
-                                                    <option value="MT">Montana</option>
-                                                    <option value="NE">Nebraska</option>
-                                                    <option value="NV">Nevada</option>
-                                                    <option value="NH">New Hampshire</option>
-                                                    <option value="NJ">New Jersey</option>
-                                                    <option value="NM">New Mexico</option>
-                                                    <option value="NY">New York</option>
-                                                    <option value="NC">North Carolina</option>
-                                                    <option value="ND">North Dakota</option>
-                                                    <option value="OH">Ohio</option>
-                                                    <option value="OK">Oklahoma</option>
-                                                    <option value="OR">Oregon</option>
-                                                    <option value="PA">Pennsylvania</option>
-                                                    <option value="RI">Rhode Island</option>
-
-                                                    <option value="SD">South Dakota</option>
-                                                    <option value="TN">Tennessee</option>
-                                                    <option value="TX">Texas</option>
-                                                    <option value="UT">Utah</option>
-                                                    <option value="VT">Vermont</option>
-                                                    <option value="VA">Virginia</option>
-                                                    <option value="WA">Washington</option>
-                                                    <option value="WV">West Virginia</option>
-                                                    <option value="WI">Wisconsin</option>
-                                                    <option value="AZ" selected="">Arizona</option>
-                                                    <option value="SC" selected="">South Carolina</option>
-                                                    <option value="WY" selected="">Wyoming</option>
-                                                </select>
-                                                <div className="ts-wrapper form-select multi has-items">
-                                                    <div className="ts-control">
-                                                        <div data-value="AZ" className="item" data-ts-item="">Arizona</div>
-                                                        <div data-value="SC" className="item" data-ts-item="">South Carolina</div>
-                                                        <div data-value="WY" className="item" data-ts-item="">Wyoming</div>
-                                                        <input tabindex="0" role="combobox" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-states-ts-dropdown"
-                                                            id="select-states-ts-control" type="select-multiple" /></div></div>
+                                        <div className="mt-5 d-flex align-items-center">
+                                            <div className="product-price">
+                                                <strong></strong>
+                                            </div>
+                                            <div className="mx-auto">
+                                                <button type="button" className="btn btn-primary" style={isDragging ? { color: "red" } : null} onClick={onImageUpload} {...dragProps}><i className="fe fe-plus"></i> Click or Drop here</button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
+                                {/* <button onClick={onImageRemoveAll}>Remove all images</button> */}
+                                <strong className="px-3"> Photos added by you({serverImages == undefined ? imageList.length : serverImages.length}) </strong>
+                                <div className="row">
+                                    {serverImages?.map((image, index) => (
+                                        <div key={index} className="image-item col-md-3">
+                                            <div className="card">
+                                                <div className="card-header">
+                                                    <img src={image} alt="" width="100" />
 
+                                                </div>
+                                                <div className="image-item__btn-wrapper text-center card-body">
+                                                    <button type="button" onClick={() => onImageRemove(index)}>Remove</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ))}
 
-                    </>}
-                    {!islandorPlot && !isCommercial && <>
-                        <div className="col-sm-6 col-md-6">
-                            <div className="form-group">
-                                <label className="control-label">Have you paid Property Tax?</label>
-                                <div className="input-group mb-3">
-
-                                    <select type="text" name='PropertyTax' value={additionalInfo?.PropertyTax} className="form-select" {...register("PropertyTax", { required: false })} id="PropertyTax"
-                                        onChange={e => optionchanged(e, "PropertyTax")}>
-                                        <option value="" disabled> Select Property Tax</option>
-                                        {jsonPropertyControls?.PropertyTax?.map((option, index) => (
-                                            <option key={index} value={option}> {option}</option>
-                                        ))}
-                                    </select>
+                                    {images.map((image, index) => (
+                                        <div key={index} className="image-item col-md-3">
+                                            <div className="card">
+                                                <div className="card-header">
+                                                    <img className="w-100" src={image.data_url} alt="" width="100" />
+                                                </div>
+                                                <div className="image-item__btn-wrapper text-center card-body">
+                                                    <button type="button" onClick={() => onImageRemove(index)}>Remove</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ))}
                                 </div>
                             </div>
-                            {errors.PropertyTax && <span className="formError errorMssg" style={{ color: 'red' }}> property tax required</span>}
-                        </div>
-                        <div className="col-sm-6 col-md-6">
-                            <div className="form-group">
-                                <label className="control-label">Do You have Occupancy Certificate?</label>
-                                <div className="input-group mb-3">
-                                    <select type="text" name='OccupancyCertificate' value={additionalInfo?.OccupancyCertificate} className="form-select" {...register("OccupancyCertificate", { required: false })} id="OccupancyCertificate"
-                                        onChange={e => optionchanged(e, "OccupancyCertificate")}>
-                                        <option value="" disabled> Select Occupancy Certificate</option>
-                                        {jsonPropertyControls?.OccupancyCertificate?.map((option, index) => (
-                                            <option key={index} value={option}> {option}</option>
-                                        ))}
-                                    </select>
+                        )}
+                    </ImageUploading>
+
+                    <div className="card-header"></div>
+
+                    <div className="col-md-12">
+                        <div className="alert alert-primary">Are you in trouble? We can upload photos on your behalf </div>
+                        <div className="row">
+                            <div className="col-sm-6">
+                                <div className="card">
+                                    <div className="card-header">
+                                        <h3 className="card-title">Whatsapp us on</h3>
+                                    </div>
+                                    <div className="card-body">
+                                        <div id="chart-donut" >0-9241-700-000</div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div className="col-sm-6">
+                                <div className="card">
+                                    <div className="card-header">
+                                        <h3 className="card-title">Email to</h3>
+                                    </div>
+                                    <div className="card-body">
+                                        <div id="chart-pie" >0-9241-700-000</div>
+                                    </div>
                                 </div>
                             </div>
-                            {errors.OccupancyCertificate && <span className="formError errorMssg" style={{ color: 'red' }}> occupancy certificate required</span>}
-                        </div></>
-                    }
-                </div>
+                        </div>
+                    </div>
+                    <PropertySubmitButton title="Save & Continue" backClick={handleBackButton} />
+                </form>
             </div>
-
-            <PropertySubmitButton title="Save & Continue" backClick={handleBackButton} />
-        </form>
+        </div>
     )
 }
 
-export default PropertyAdditionalInformation
+export default PropertyGalleryUpload

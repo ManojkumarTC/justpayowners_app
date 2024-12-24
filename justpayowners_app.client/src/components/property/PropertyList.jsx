@@ -133,6 +133,10 @@ const PropertyList = ({ listing, Category, AdType }) => {
                     <div className="verified-area">
                         <h3 className="item-title"><a href="#">{GetPropertyTitle(propertyObject)}</a></h3>
                     </div>
+                    <div className="listing-badge-wrap">
+                        <span className="badge rtcl-badge-popular popular-badge badge-success">Popular</span>
+                        <span className="badge rtcl-badge-_top">Top</span>
+                    </div>
                     <div className="location-area"><i className="flaticon-maps-and-flags"></i>{propertyObject[0]?.LocalityDetails?.city},{propertyObject[0]?.LocalityDetails?.state}</div>
                     <div className="item-categoery3">
                         <ul>
@@ -141,9 +145,21 @@ const PropertyList = ({ listing, Category, AdType }) => {
                             <li><i className="flaticon-two-overlapping-square"></i>{propertyObject[0]?.property_details?.builtUpArea} Sqft</li>
                         </ul>
                     </div>
-                    <div className="item-price">₹                        
-                        {propertyObject[0].RentalDetails?.PropertyAvailable == "Only rent" ? propertyObject[0]?.RentalDetails?.ExpectedRent : propertyObject[0]?.RentalDetails?.LeaseAmount} 
-                        <i>/</i><span>Month</span></div>
+                    <div className="product-bottom-content"><div className="item-author">
+                        <div className="media">
+                            <img loading="lazy" width="150" height="150" src="https://www.radiustheme.com/demo/wordpress/themes/homlisti/wp-content/uploads/classified-listing/2022/01/avater-150x150.jpg" className="attachment-150x150 size-150x150" alt="" decoding="async" title="" />
+                            <div className="media-body">
+                                <div className="item-title">
+                                    <a className="author-link" href="#">
+                                        John Doe											                                        </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                        <div className="item-price">₹
+                            {propertyObject[0].RentalDetails?.PropertyAvailable == "Only rent" ? propertyObject[0]?.RentalDetails?.ExpectedRent : propertyObject[0]?.RentalDetails?.LeaseAmount}
+                            <i>/</i><span>Month</span></div>
+                    </div>
 
                 </div>
             </div>
@@ -194,8 +210,8 @@ const PropertyList = ({ listing, Category, AdType }) => {
                     </div>
                     <div className="item-price">₹
                         {propertyObject[0]?.ReSaleDetails?.ExpectedPrice}
-                        {propertyObject[0].ReSaleDetails?.PriceNegotiable == "Yes" && <><i>/</i><span>(Negotiable)</span></>   }
-                        </div>
+                        {propertyObject[0].ReSaleDetails?.PriceNegotiable == "Yes" && <><i>/</i><span>(Negotiable)</span></>}
+                    </div>
 
                 </div>
             </div>
@@ -356,11 +372,11 @@ const PropertyList = ({ listing, Category, AdType }) => {
     }
 
 
-    return (       
-            
+    return (
+
         <>{renderContent()}</>
-              
-       
+
+
     )
 }
 export default PropertyList

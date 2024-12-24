@@ -5,7 +5,7 @@ const CompanyRights = function ({ json }) {
     return (<>
         <div className="footer-bottom">
             <div className="row justify-content-center">
-                <div className="col-lg-7 col-md-6">
+                <div className="col-lg-8 col-md-6">
                     <div className="copyright-area1">
                         <ul>
                             {json.siteMap.map((item, index) => {
@@ -16,7 +16,7 @@ const CompanyRights = function ({ json }) {
                         </ul>
                     </div>
                 </div>
-                <div className="col-lg-5 col-md-6">
+                <div className="col-lg-4 col-md-6">
                     <div className="copyright-area2">
                         <div className="footer-logo-area">
                             <div className="item-social">
@@ -46,3 +46,5 @@ const CompanyRights = function ({ json }) {
     );
 };
 export default CompanyRights;
+
+

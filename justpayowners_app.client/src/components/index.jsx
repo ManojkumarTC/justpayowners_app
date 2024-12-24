@@ -29,6 +29,20 @@ export { default as SectionTitle } from "./SectionTitle";
 export { default as WhatWeDoDashboard } from "./WhatWeDoDashboard";
 export { default as PostPropertyForm } from "./propertypost/PostPropertyForm";
 
+export { default as QuickLinksTabs } from "./QuickLinksTabs";
+
+export { default as BrandSlider } from "./BrandSlider";
+export { default as PropertyCard } from "./property/PropertyCard";
+export { default as OurServices } from "./OurServices";
+
+export { default as PropertyHighlights } from "./property/PropertyHighlights";
+export { default as ExplorePropertyTypes } from "./property/ExplorePropertyTypes";  
+
+
+export { default as MainBannerSection } from "./MainBannerSection";
+export { default as PropetyTestimonial } from "./PropetyTestimonial";
+
+
 export { default as LatestProperties } from "./property/LatestProperties";  
 export { default as SimilarProperties } from "./property/SimilarProperties";
 export { default as PropertySpotlight } from "./property/PropertySpotlight";
@@ -45,7 +59,7 @@ export { default as PropertyOverview } from "./property/PropertyOverview";
 export { default as PropertySimilartags } from "./property/PropertySimilartags";
 export { default as PropertyBanner } from "./property/PropertyBanner";
 
-
+export { default as FAQs } from "./FAQsElement";
 
 export { default as PropertyDetails } from "./propertypost/PropertyDetails";
 export { default as PropertyLocalityDetails } from "./propertypost/PropertyLocalityDetails";

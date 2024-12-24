@@ -40,11 +40,16 @@
       "text": "FAQs",
       "icon": "/svgs/faq-icon.svg",
       "url": "/faq"
-    },   
+    },
     {
       "text": "Blog",
       "icon": "/svgs/blogger-icon.svg",
       "url": "/blog"
+    },
+    {
+      "text": "Contact Us",
+      "icon": "/svgs/blogger-icon.svg",
+      "url": "/contact-us"
     }
    
   ],

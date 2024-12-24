@@ -120,7 +120,11 @@ const router = createBrowserRouter([
             },
             {
                 path: "property-location/:city",
-                element: <PropertyListPage Category={"City"} AdType={"City"} />
+                element: <PropertyListPage Category={"Location"} AdType={"City"} />
+            },
+            {
+                path: "property-location/:city/:area",
+                element: <PropertyListPage Category={"Location"} AdType={"City"} />
             },
             {
                 path: "/:city/:category",

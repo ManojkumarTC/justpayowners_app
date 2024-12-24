@@ -98,7 +98,7 @@ const Blog = function () {
         <section className="grid-wrap3">
             <div className="container">
                 <div className="row gutters-40">
-                    <div className="col-lg-8">
+                    <div className="col-lg-8 ">
                         <div className="row">
 
                             {BlogPosts.length === 0 && <h2 className="text-accent-content text-center text-4xl my-10">No blog data found for this filter</h2>}

@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 
 import Jsonfooter from './mockdata/footerData.json';
 
-import { QuickLinks, CompanyRights, BannerBox } from './components'
+import { QuickLinks, CompanyRights, BannerBox, QuickLinksTabs } from './components'
 
 const SiteFooter = function () {  
   useEffect(() => {
@@ -16,6 +16,7 @@ const SiteFooter = function () {
       <BannerBox />
       <footer className="footer-area">
           <QuickLinks json={Jsonfooter} />
+          <QuickLinksTabs json={Jsonfooter} />
           <CompanyRights json={Jsonfooter} />
       </footer>
              

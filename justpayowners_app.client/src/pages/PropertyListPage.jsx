@@ -103,7 +103,6 @@ const PropertyListDetails = ({ Category, AdType }) => {
 
     const GenerateURLBasedonCategory = () => {
         let _url = "";
-
         switch (Category) {
             case "Residential Rent":
                 _url = `${JPOapi.GetPropertyResidentialRentals.url}?cityName=${selectedCity == "All India" ? '' : selectedCity}`;

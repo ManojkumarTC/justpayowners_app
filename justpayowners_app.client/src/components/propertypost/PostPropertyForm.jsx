@@ -82,54 +82,54 @@ const PostPropertyForm = () => {
                         <div className={"row"}>
 
                             <div className="col-sm-6 col-md-6">
-                                <div className="form-group">                                    
-                                        <label className="control-label" >Full Name <span className="form-required">*</span></label>
-                                        <input type="text" id="floating-name" className="form-control "
-                                            {...register('fullName', { required: 'Username is required' })} />
-                                   
+                                <div className="form-group">
+                                    <label className="control-label" >Full Name <span className="form-required">*</span></label>
+                                    <input type="text" id="floating-name" className="form-control "
+                                        {...register('fullName', { required: 'Username is required' })} />
+
                                     {errors.fullName && <span className="formError errorMssg" style={{ color: 'red' }}>{errors.fullName.message}</span>}
                                 </div>
                             </div>
                             <div className="col-sm-6 col-md-6">
                                 <div className="form-group">
-                                  
-                                        <label s className="control-label">Email Address <span className="form-required">*</span></label>
-                                        <input type="email"  className="form-control"
-                                            {...register('email', {
-                                                required: 'Email is required',
-                                                pattern: {
-                                                    value: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-                                                    message: 'Enter a valid email address',
-                                                },
-                                            })}
-                                        />
 
-                                   
+                                    <label s className="control-label">Email Address <span className="form-required">*</span></label>
+                                    <input type="email" className="form-control"
+                                        {...register('email', {
+                                            required: 'Email is required',
+                                            pattern: {
+                                                value: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+                                                message: 'Enter a valid email address',
+                                            },
+                                        })}
+                                    />
+
+
                                     {errors.email && <span className="formError errorMssg" style={{ color: 'red' }}>{errors.email.message}</span>}
                                 </div>
                             </div>
 
                             <div className="col-sm-6 col-md-6">
                                 <div className="form-group">
-                                   
-                                        <label  className="control-label">Mobile Number <span className="form-required">*</span></label>
-                                        <input className="form-control"
-                                            {...register('mobileNumber', {
-                                                required: 'Mobile number is required',
-                                                pattern: {
-                                                    value: /^[0-9]{10}$/,
-                                                    message: 'Enter a valid 10-digit mobile number',
-                                                },
-                                            })}
-                                        />
 
-                                   
+                                    <label className="control-label">Mobile Number <span className="form-required">*</span></label>
+                                    <input className="form-control"
+                                        {...register('mobileNumber', {
+                                            required: 'Mobile number is required',
+                                            pattern: {
+                                                value: /^[0-9]{10}$/,
+                                                message: 'Enter a valid 10-digit mobile number',
+                                            },
+                                        })}
+                                    />
+
+
                                     {errors.mobileNumber && <span className="formError errorMssg" style={{ color: 'red' }}>{errors.mobileNumber.message}</span>}
                                 </div>
                             </div>
                             <div className="col-sm-6 col-md-6">
                                 <div className="form-group">
-                                    <label  className="control-label">Select City</label>
+                                    <label className="control-label">Select City</label>
                                     <div className="form-floating">
                                         <select className="form-select" id="floatingSelect" aria-label="Floating label select example">
                                             <option selected="">Open this select menu</option>
@@ -166,16 +166,16 @@ const PostPropertyForm = () => {
                                 </div>
                             </div>
 
-                            
+
 
 
                         </div>
 
-                    
-                    </div>) : (<h3 className="widget-subtitle">Post your free Properties</h3> 
-                    ) }
-        
-      
+
+                    </div>) : (<h3 className="widget-subtitle">Post your free Properties</h3>
+                    )}
+
+
                 </div>
                 <div className='tab-style-1  tab-style-custom'>
                     <Tabs
@@ -193,8 +193,8 @@ const PostPropertyForm = () => {
                                     <div className="row g-2 align-items-center">
                                         <div className="col-12  py-3 plans" >
 
-                                            <label className="plan basic-plan"  style={getButtonStyle('ResidentialRent')} onClick={() => handleSetValue('ResidentialRent')} >
-                                                <input checked type="radio" name="ResidentialRent" id="ResidentialRent" />
+                                            <label className="plan basic-plan" style={getButtonStyle('ResidentialRent')} onClick={() => handleSetValue('ResidentialRent')} >
+                                                <input checked type="radio" name="ResidentialType" id="ResidentialRent" />
                                                 <div className="plan-content">
                                                     <img loading="lazy" src="https://raw.githubusercontent.com/ismailvtl/ismailvtl.github.io/master/images/life-saver-img.svg" alt="" />
                                                     <div className="plan-details">
@@ -204,8 +204,8 @@ const PostPropertyForm = () => {
                                                 </div>
                                             </label>
 
-                                            <label className="plan complete-plan"  style={getButtonStyle('ResidentialSale')} onClick={() => handleSetValue('ResidentialSale')}>
-                                                <input type="radio" id="ResidentialSale" name="ResidentialSale" />
+                                            <label className="plan complete-plan" style={getButtonStyle('ResidentialSale')} onClick={() => handleSetValue('ResidentialSale')}>
+                                                <input type="radio" id="ResidentialSale" name="ResidentialType" />
                                                 <div className="plan-content">
                                                     <img loading="lazy" src="https://raw.githubusercontent.com/ismailvtl/ismailvtl.github.io/master/images/potted-plant-img.svg" alt="" />
                                                     <div className="plan-details">
@@ -225,12 +225,12 @@ const PostPropertyForm = () => {
                         </Tab>
                         <Tab eventKey="Commercials" title="Commercials" className="nav-item">
                             <div className="tab-pane" id="tabs-Commercials-ex1">
-                              {/*  <h6>Pick Property Listing Type</h6>*/}
+                                {/*  <h6>Pick Property Listing Type</h6>*/}
                                 <div className="row g-2 align-items-center">
                                     <div className="col-12  py-3 plans" >
 
-                                        <label className="plan basic-plan"  style={getButtonStyle('CommercialsRent')} onClick={() => handleSetValue('CommercialsRent')} >
-                                            <input checked type="radio" name="CommercialsRent" id="CommercialsRent" />
+                                        <label className="plan basic-plan" style={getButtonStyle('CommercialsRent')} onClick={() => handleSetValue('CommercialsRent')} >
+                                            <input checked type="radio" name="CommercialsType" id="CommercialsRent" />
                                             <div className="plan-content">
                                                 <img loading="lazy" src="https://raw.githubusercontent.com/ismailvtl/ismailvtl.github.io/master/images/life-saver-img.svg" alt="" />
                                                 <div className="plan-details">
@@ -240,8 +240,8 @@ const PostPropertyForm = () => {
                                             </div>
                                         </label>
 
-                                        <label className="plan complete-plan"  style={getButtonStyle('CommercialsSale')} onClick={() => handleSetValue('CommercialsSale')}>
-                                            <input type="radio" id="CommercialsSale" name="CommercialsSale" />
+                                        <label className="plan complete-plan" style={getButtonStyle('CommercialsSale')} onClick={() => handleSetValue('CommercialsSale')}>
+                                            <input type="radio" id="CommercialsSale" name="CommercialsType" />
                                             <div className="plan-content">
                                                 <img loading="lazy" src="https://raw.githubusercontent.com/ismailvtl/ismailvtl.github.io/master/images/potted-plant-img.svg" alt="" />
                                                 <div className="plan-details">
@@ -263,12 +263,12 @@ const PostPropertyForm = () => {
                         </Tab>
                         <Tab eventKey="LandPlot" title="Land/Plot" className="nav-item" >
                             <div className="tab-pane" id="tabs-Land-ex1">
-                               {/* <h6>Pick Property Listing Type</h6>*/}
+                                {/* <h6>Pick Property Listing Type</h6>*/}
                                 <div className="row g-2 align-items-center">
 
                                     <div className="col-12  py-3 plans" >
 
-                                        <label className="plan basic-plan"  style={getButtonStyle('LandPlotSale')} onClick={() => handleSetValue('LandPlotSale')} >
+                                        <label className="plan basic-plan" style={getButtonStyle('LandPlotSale')} onClick={() => handleSetValue('LandPlotSale')} >
                                             <input checked type="radio" name="LandPlotSale" id="LandPlotSale" />
                                             <div className="plan-content">
                                                 <img loading="lazy" src="https://raw.githubusercontent.com/ismailvtl/ismailvtl.github.io/master/images/life-saver-img.svg" alt="" />
@@ -290,15 +290,15 @@ const PostPropertyForm = () => {
                         <button type="submit" className="item-btn disabled">Start Posting Your Ad For FREE</button>
                     </div>
 
-                    
-                        
+
+
                     {currentUser == null || currentUser.length === 0 ? (
-        <div className="card-footer text-end " ></div>
-      ) : (
-        <div className="card-footer text-end " style={{height:'5px'}}></div>
-      )}
-                        
-                 
+                        <div className="card-footer text-end " ></div>
+                    ) : (
+                        <div className="card-footer text-end " style={{ height: '5px' }}></div>
+                    )}
+
+
                 </div>
             </form>
         </>
