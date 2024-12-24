@@ -149,6 +149,7 @@
     outline: none !important;
     border: 1px solid #0028641f;
     padding: 6px;
+
 }
 
     #tab-section-right .react-datepicker-wrapper input:focus {
@@ -177,6 +178,7 @@
 #postPropertyForm .custom-control-label::before,
 #postPropertyForm .custom-control-label::after {
     border: 1px solid #467fcf;
+
 }
 
 #tab-section-right select {

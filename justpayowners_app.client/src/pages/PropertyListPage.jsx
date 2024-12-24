@@ -141,14 +141,12 @@ const PropertyListDetails = ({ Category, AdType }) => {
     return (
         <>
             <section className="grid-wrap3">
-                <div className="container">
+                <div className="mx-5">
                     <div className="row gutters-40">
                         <div className="col-lg-4 widget-break-lg sidebar-widget">
                             <div className="widget widget-advanced-search">
 
                                 <PropertyFilter handleSubmit={handleSubmit} Category={Category} fetchPropertiesByStatus={fetchPropertiesByStatus} setPagination={setPagination} />
-
-
                             </div>
 
                             <div className="widget widget-listing-box1">

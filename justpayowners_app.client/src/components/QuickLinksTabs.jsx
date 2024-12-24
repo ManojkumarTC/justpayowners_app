@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Tabs, Tab } from "react-bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
+//import "bootstrap/dist/css/bootstrap.min.css";
 import { NavLink } from 'react-router-dom'
 
 function QuickLinksTabs() {
@@ -249,10 +249,10 @@ function QuickLinksTabs() {
                         }
                     >
                         <div>                           
-                            <ul >
+                            <ul id="dynamic-tabs-content">
                                 {tab.content.map((item, i) => (
                                     <li key={i}>
-                                        {item.parent}
+                                        <div class="property-type-title">{item.parent}</div>
                                         {residentialAreas && (
                                             <div className="item-link">   
                                             <ul >
