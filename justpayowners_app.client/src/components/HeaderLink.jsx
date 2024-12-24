@@ -20,7 +20,7 @@ const HeaderLink = ({ propsProfile = false }) => {
                             <MenuLink />
                               
                           </div>
-                        <div className="col-xl-4 col-lg-4 d-flex justify-content-end">
+                        <div className="col-xl-5 col-lg-5 d-flex justify-content-end">
                         <LocationListing />
                             {showResults ? null : <HeaderButtons />}
                             {showResults ? <> <UserNotification /> <UserProfileControls /> </> : null}
