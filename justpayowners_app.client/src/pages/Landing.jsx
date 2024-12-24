@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { PropertyHighlights, ExplorePropertyTypes, OurServices, MainBannerSection, PropetyTestimonial, BrandSlider } from "../components";
+import { PropertyHighlights, ExplorePropertyTypes, OurServices, MainBannerSection, ServiceFeedback, BrandSlider } from "../components";
 
 import { useSelector } from 'react-redux'
 import { store } from '../redux/store';
@@ -98,7 +98,7 @@ const Landing = () => {
         <PropertyHighlights pickedData={[]} headline={'Latest Our Residential Rental Post'} url="residential_rentals" />
 
 
-        <PropetyTestimonial />
+        <ServiceFeedback data={Testimonials}  />
         <BrandSlider />
 
     </>

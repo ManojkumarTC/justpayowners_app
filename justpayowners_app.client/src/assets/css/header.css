@@ -464,23 +464,17 @@ li.dropdown.submenu-level1 {
 
 /*custom styles*/
 
-#navbar-wrap {
-    padding: 0px 30px;
-    padding-top: 10px;
-}
 
 .logo-area a.header-brand img {
     width: 150px;
 }
 
 .location-dropdown.loc_menu {
-    left: auto !important;
-    right: 0;
+    left: 2px;
 }
 
 .location-dropdown-inner:before {
-    left: auto !important;
-    right: 45px;
+    left: 30px;
 }
 
 #mobile-menu ul.main-menu__dropdown.sub-menu .sub-menu {
@@ -497,44 +491,4 @@ li.dropdown.submenu-level1 {
 
 #meanmenu .mean-bar img {
     height: 25px;
-}
-
-/*custom footer styles*/
-
-footer.footer-area .footer-top {
-    padding: 50px 30px;
-}
-
-footer.footer-area .footer-bottom {
-    padding: 15px 30px;
-}
-
-.footer-logo-area .item-social li {
-    margin-right: 10px;
-}
-
-@media (max-width:767px) {
-    .footer-bottom .copyright-area1 {
-        text-align: left !important;
-    }
-
-    .footer-logo-area .item-social {
-        float: none !important;
-    }
-
-    .copyright-area1 span {
-        display: block;
-    }
-}
-
-.set_location.position-relative {
-    display: flex;
-    align-items: center;
-    margin-right: 20px;
-}
-
-.set_location .city {
-    height: max-content;
-    border: 1px solid black;
-    padding: 10px;
 }

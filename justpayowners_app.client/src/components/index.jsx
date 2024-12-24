@@ -40,7 +40,7 @@ export { default as ExplorePropertyTypes } from "./property/ExplorePropertyTypes
 
 
 export { default as MainBannerSection } from "./MainBannerSection";
-export { default as PropetyTestimonial } from "./PropetyTestimonial";
+export { default as ServiceFeedback } from "./ServiceFeedback";
 
 
 export { default as LatestProperties } from "./property/LatestProperties";  

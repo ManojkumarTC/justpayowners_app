@@ -207,20 +207,21 @@ const PropertyListDetails = ({ Category, AdType }) => {
                                                     <option value="3">Low Price</option>
                                                 </select><div className="nice-select select single-select mr-0" tabIndex="0"><span className="current">Default</span><ul className="list"><li data-value="1" className="option selected">Default</li><li data-value="2" className="option">High Price</li><li data-value="3" className="option">Medium Price</li><li data-value="3" className="option">Low Price</li></ul></div>
                                             </div>
-                                            <div className="grid-button">
-                                                <ul className="nav nav-tabs" role="tablist">
-                                                    <li className="nav-item">
-                                                        <a className="nav-link" data-bs-toggle="tab" href="#mylisting"><i className="fas fa-th"></i></a>
-                                                    </li>
-                                                    <li className="nav-item">
-                                                        <a className="nav-link active" data-bs-toggle="tab" href="#reviews"><i className="fas fa-list-ul"></i></a>
-                                                    </li>
-                                                </ul>
-                                            </div>
+                                            {/*<div className="grid-button">*/}
+                                            {/*    <ul className="nav nav-tabs" role="tablist">*/}
+                                            {/*        <li className="nav-item">*/}
+                                            {/*            1 bhk ,*/}
+                                            {/*        </li>*/}
+                                            {/*        */}{/*<li className="nav-item">*/}
+                                            {/*        */}{/*    <a className="nav-link" data-bs-toggle="tab" href="#mylisting"><i className="fas fa-th"></i></a>s*/}
+                                            {/*        */}{/*    <a className="nav-link active" data-bs-toggle="tab" href="#reviews"><i className="fas fa-list-ul"></i></a>*/}
+                                            {/*        */}{/*</li>*/}
+                                            {/*    </ul>*/}
+                                            {/*</div>*/}
                                         </div>
                                     </div>
-
                                     <div className="shorting-title">
+                                    1bhk
                                     </div>
                                 </div>
                             </div>

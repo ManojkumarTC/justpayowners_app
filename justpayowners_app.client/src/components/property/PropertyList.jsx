@@ -11,6 +11,28 @@ import { BsFlagFill } from 'react-icons/bs';
 import { IoKeyOutline } from 'react-icons/io5';
 
 
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/navigation';
+
+const slides = [
+    {
+        image: 'https://www.radiustheme.com/demo/wordpress/themes/homlisti/wp-content/uploads/classified-listing/2022/03/daziy_millar3-1-400x240.jpg',
+        link: 'https://www.radiustheme.com/demo/wordpress/themes/homlisti/property/northwest-office-space/'
+    },
+    {
+        image: 'https://www.radiustheme.com/demo/wordpress/themes/homlisti/wp-content/uploads/classified-listing/2022/03/daziy_millar4-1-400x240.jpg',
+        link: 'https://www.radiustheme.com/demo/wordpress/themes/homlisti/property/northwest-office-space/'
+    },
+    {
+        image: 'https://www.radiustheme.com/demo/wordpress/themes/homlisti/wp-content/uploads/classified-listing/2022/03/daziy_millar5-1-400x240.jpg',
+        link: 'https://www.radiustheme.com/demo/wordpress/themes/homlisti/property/northwest-office-space/'
+    },
+    {
+        image: 'https://www.radiustheme.com/demo/wordpress/themes/homlisti/wp-content/uploads/classified-listing/2022/03/daziy_millar2-2-400x240.jpg',
+        link: 'https://www.radiustheme.com/demo/wordpress/themes/homlisti/property/northwest-office-space/'
+    }
+];
 const PropertyList = ({ listing, Category, AdType }) => {
 
     const [heart, setHeart] = useState(false);
@@ -106,6 +128,7 @@ const PropertyList = ({ listing, Category, AdType }) => {
                 animationDelay: "0.6s",
                 animationName: "fadeInUp",
             }}>
+
                 <div className="item-img">
                     <a href="#">
                         <img src="/src/assets/img/blog/blog13.jpg" alt="blog" width="250" height="200" />
@@ -134,7 +157,7 @@ const PropertyList = ({ listing, Category, AdType }) => {
                         <h3 className="item-title"><a href="#">{GetPropertyTitle(propertyObject)}</a></h3>
                     </div>
                     <div className="listing-badge-wrap">
-                        <span className="badge rtcl-badge-popular popular-badge badge-success">Popular</span>
+                        <span className="badge rtcl-badge-popular popular-badge badge-success">Verified</span>
                         <span className="badge rtcl-badge-_top">Top</span>
                     </div>
                     <div className="location-area"><i className="flaticon-maps-and-flags"></i>{propertyObject[0]?.LocalityDetails?.city},{propertyObject[0]?.LocalityDetails?.state}</div>
@@ -143,6 +166,7 @@ const PropertyList = ({ listing, Category, AdType }) => {
                             <li><i className="flaticon-bed"></i>Beds: {propertyObject[0]?.property_details?.BHKType}</li>
                             <li><i className="flaticon-shower"></i>Baths: {propertyObject[0]?.property_details?.Bathroom}</li>
                             <li><i className="flaticon-two-overlapping-square"></i>{propertyObject[0]?.property_details?.builtUpArea} Sqft</li>
+
                         </ul>
                     </div>
                     <div className="product-bottom-content"><div className="item-author">
