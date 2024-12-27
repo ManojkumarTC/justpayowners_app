@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import { blogLoader } from "../pages/Blog.jsx";
+
 import AdminDashboard from "../pages/Admin/AdminDashboard.jsx";
 import ManageProperties from "../components/Admin/ManagePendingProperties.jsx";
 
@@ -119,8 +119,12 @@ const router = createBrowserRouter([
                 element: <PropertyListPage Category={"LandOrPlot Sale"} AdType={"Sale"} />
             },
             {
-                path: "property-location/:city",
-                element: <PropertyListPage Category={"City"} AdType={"City"} />
+                path: "property/:city",
+                element: <PropertyListPage Category={"Location"} AdType={"City"} />
+            },
+            {
+                path: "property/:city/:area",
+                element: <PropertyListPage Category={"Location"} AdType={"City"} />
             },
             {
                 path: "/:city/:category",
@@ -188,13 +192,17 @@ const router = createBrowserRouter([
             },            
             {
                 path: "blog",
-                element: <Blog />,
-                loader: blogLoader
+                element: <Blog />
+                
+            },
+            {
+                path: "blog/:category",
+                element: <Blog />
+
             },
             {
                 path: "BlogDetails/:title/:id",
-                element: <BlogDetails />,
-                loader: blogLoader
+                element: <BlogDetails />
             },
             {
                 path: "/profile/mydashboard",

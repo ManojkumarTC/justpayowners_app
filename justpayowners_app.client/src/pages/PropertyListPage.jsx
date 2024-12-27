@@ -68,6 +68,7 @@ const PropertyListDetails = ({ Category, AdType }) => {
         if (dataFetchedRef.current) return;
         dataFetchedRef.current = true;
         fetchPropertiesByStatus(0);
+        $("select").niceSelect();
     }, []);
 
     const handleSubmit = async (filterState, e) => {
@@ -102,7 +103,6 @@ const PropertyListDetails = ({ Category, AdType }) => {
 
     const GenerateURLBasedonCategory = () => {
         let _url = "";
-
         switch (Category) {
             case "Residential Rent":
                 _url = `${JPOapi.GetPropertyResidentialRentals.url}?cityName=${selectedCity == "All India" ? '' : selectedCity}`;
@@ -141,14 +141,12 @@ const PropertyListDetails = ({ Category, AdType }) => {
     return (
         <>
             <section className="grid-wrap3">
-                <div className="container">
+                <div className="mx-5">
                     <div className="row gutters-40">
                         <div className="col-lg-4 widget-break-lg sidebar-widget">
                             <div className="widget widget-advanced-search">
 
                                 <PropertyFilter handleSubmit={handleSubmit} Category={Category} fetchPropertiesByStatus={fetchPropertiesByStatus} setPagination={setPagination} />
-
-                               
                             </div>
 
                             <div className="widget widget-listing-box1">
@@ -207,21 +205,22 @@ const PropertyListDetails = ({ Category, AdType }) => {
                                                     <option value="3">Low Price</option>
                                                 </select><div className="nice-select select single-select mr-0" tabIndex="0"><span className="current">Default</span><ul className="list"><li data-value="1" className="option selected">Default</li><li data-value="2" className="option">High Price</li><li data-value="3" className="option">Medium Price</li><li data-value="3" className="option">Low Price</li></ul></div>
                                             </div>
-                                            <div className="grid-button">
-                                                <ul className="nav nav-tabs" role="tablist">
-                                                    <li className="nav-item">
-                                                        <a className="nav-link" data-bs-toggle="tab" href="#mylisting"><i className="fas fa-th"></i></a>
-                                                    </li>
-                                                    <li className="nav-item">
-                                                        <a className="nav-link active" data-bs-toggle="tab" href="#reviews"><i className="fas fa-list-ul"></i></a>
-                                                    </li>
-                                                </ul>
-                                            </div>
+                                            {/*<div className="grid-button">*/}
+                                            {/*    <ul className="nav nav-tabs" role="tablist">*/}
+                                            {/*        <li className="nav-item">*/}
+                                            {/*            1 bhk ,*/}
+                                            {/*        </li>*/}
+                                            {/*        */}{/*<li className="nav-item">*/}
+                                            {/*        */}{/*    <a className="nav-link" data-bs-toggle="tab" href="#mylisting"><i className="fas fa-th"></i></a>s*/}
+                                            {/*        */}{/*    <a className="nav-link active" data-bs-toggle="tab" href="#reviews"><i className="fas fa-list-ul"></i></a>*/}
+                                            {/*        */}{/*</li>*/}
+                                            {/*    </ul>*/}
+                                            {/*</div>*/}
                                         </div>
                                     </div>
-
                                     <div className="shorting-title">
-                                       </div>
+                                    1bhk
+                                    </div>
                                 </div>
                             </div>
 
@@ -233,7 +232,7 @@ const PropertyListDetails = ({ Category, AdType }) => {
 
 
 
-                                            
+
 
 
 

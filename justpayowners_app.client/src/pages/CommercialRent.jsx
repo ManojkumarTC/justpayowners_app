@@ -84,12 +84,12 @@ function CommercialRent(props) {
 
     return (
 
-        <main className="site-main content-area">
+        <section className="grid-wrap3">
             <div className="container">
                 <div className="row">
                     <div className="col-lg-12 col-sm-12 col-12">
                         <div className="page-content-block">
-                            <div className="col-md-12 rtcl-login-form-wrap">
+                            <div className="col-md-12 ">
                                 
                                 
                                 <div id="residential-rent" className="my-1 my-md-1">
@@ -149,7 +149,7 @@ function CommercialRent(props) {
                     </div>
                 </div>
             </div>
-        </main>
+        </section>
         
     );
 }

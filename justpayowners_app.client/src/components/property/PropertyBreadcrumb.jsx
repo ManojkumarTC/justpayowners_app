@@ -1,22 +1,26 @@
 
-
+import React from 'react';
+import { useLocation } from 'react-router-dom';
 
 const PropertyBreadcrumb = () => {
-    return (<div className="page-header d-print-none">
-
-        <div className="row g-2 align-items-center">
-
-            <div className="col-auto ms-auto d-print-none">
-                <div className="d-flex">
-                    <ol className="breadcrumb breadcrumb-arrows" aria-label="breadcrumbs">
-                        <li className="breadcrumb-item"><a href="#">Tabler</a></li>
-                        <li className="breadcrumb-item"><a href="#">Pages</a></li>
-                        <li className="breadcrumb-item active" aria-current="page"><a href="#">Frequently Asked Questions</a></li>
-                    </ol>
+    const location = useLocation();
+    const isRoot = location.pathname === '/';
+    return (
+        <>
+            {!isRoot && (
+                <div className="breadcrumb-wrap breadcrumb-wrap-2">
+                    <div className="container">
+                        <nav aria-label="breadcrumb">
+                            <ol className="breadcrumb">
+                                <li className="breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li className="breadcrumb-item active" aria-current="page">About Us</li>
+                            </ol>
+                        </nav>
+                    </div>
                 </div>
-            </div>
-        </div>
+            )}
+        </>
+    );
+};
+export default PropertyBreadcrumb;
 
-    </div>)
-}
-export default PropertyBreadcrumb

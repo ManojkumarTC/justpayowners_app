@@ -1,12 +1,12 @@
 import { SectionTitle, ImageWithFallback } from "../components";
 import moment from 'moment';
 
-
-const renderComponentA = (itemsInRow) => {
+import { useEffect} from 'react'
+const renderComponentA = (item) => {
     const fallbackImageURL = 'https://via.placeholder.com/150'; // Replace with your fallback image URL
     return (
         <>
-            {itemsInRow.map(item => (
+           
                 <div className="col-lg-6 col-md-6" key={item.id} >
 
                     <div className="blog-box1 blog-box2 wow fadeInUp" data-wow-delay=".4s" style={{ visibility: "visible", animationDelay: "0.4s", animationName: "fadeInUp" }}>
@@ -28,8 +28,8 @@ const renderComponentA = (itemsInRow) => {
                         <div className="item-content">
                             <div className="entry-meta">
                                 <ul>
-                                    <li><a href="blog2.html">Apartment, Room</a></li>
-                                    <li><a href="blog2.html">{moment(item.publishDate).format("YYYY-MM-DD")}</a></li>
+                                <li><a href="blog2.html">{item.category}</a></li>
+                                <li><a href="blog2.html"> {moment(item.publishDate).format("DD MMMM  YYYY")} </a></li>
                                 </ul>
                             </div>
                             <div className="heading-title">                               
@@ -46,7 +46,7 @@ const renderComponentA = (itemsInRow) => {
 
 
 
-            ))}
+            
         </>
     );
 };
@@ -125,15 +125,18 @@ const renderRow = (itemsInRow) => {
 const BlogElement = function ({ data }) {
     console.log("BlogElement")
     console.log(data)
-    const items = data  //Array.from({ length: 30 }, (_, i) => i + 1);
-    console.log(items)
-    const rows = [];
-    for (let i = 0; i < data.length; i += 1) {
-        rows.push(renderComponentA(items));  // First row with 4 columns
-        //rows.push(renderComponentB(items.slice(i + 4, i + 7)));  // Second row with 3 columns
-        //rows.push(renderComponentC(items.slice(i + 7, i + 9)));  // Third row with 2 columns
-    }
-    return (<>{rows}</>
+
+    useEffect(() => {       
+    }, [data]);
+    //const items = data  //Array.from({ length: 30 }, (_, i) => i + 1);
+    //console.log(items)
+    //const rows = [];
+    //for (let i = 0; i < data.length; i += 1) {
+    //    rows.push(renderComponentA(items));  // First row with 4 columns
+    //    //rows.push(renderComponentB(items.slice(i + 4, i + 7)));  // Second row with 3 columns
+    //    //rows.push(renderComponentC(items.slice(i + 7, i + 9)));  // Third row with 2 columns
+    //}
+    return (<>{renderComponentA(data)}</>
     );
 };
 

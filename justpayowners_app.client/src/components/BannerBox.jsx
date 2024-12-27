@@ -84,13 +84,21 @@ const BannerBox = function () {
                             </div>
                         </div>
                     </div>
-                    <div className="col-lg-4 col-md-5">
-                        <div className="banner-button">
+                    <div className="col-lg-4 col-md-5 d-flex justify-content-between">
+                        <div className="banner-button mb-3">
                             <a
-                                href="agency-lists1.html"
+                                href="/contact-us"
                                 className="banner-btn"
                             >
                                 Register Now
+                            </a>
+                        </div>
+                        <div className="banner-button">
+                            <a
+                                href="/contact-us"
+                                className="banner-btn"
+                            >
+                                Contact us
                             </a>
                         </div>
                     </div>

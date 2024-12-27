@@ -23,7 +23,7 @@ const HeaderProfile = () => {
     }
     return (
         <div id='profile-icon'>
-            <div className='d-flex align-items-center justify-content-center position-relative focus:outline-none'>
+            <div className='d-flex align-items-center justify-content-center focus:outline-none'>
                 <div className='h-35 w-35 mx-0.5p p-0 profileImg'>
                     <MdAccountCircle size={"35px"} className='text-gray-lightest' />
                     <span>{currentUser?.name}</span>

@@ -2,15 +2,29 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom'
 import { clearSavedListing, handleLisingRemove, handleSave } from '../../redux/saveListing/saveListingSlice';
-import { RiArmchairLine } from 'react-icons/ri';
-import { FaRegBuilding } from 'react-icons/fa6';
-import { LuUser2 } from 'react-icons/lu';
-import moment from 'moment';
-import { IoMdHeartEmpty } from 'react-icons/io';
-import { BsFlagFill } from 'react-icons/bs';
-import { IoKeyOutline } from 'react-icons/io5';
 
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/navigation';
 
+const slides = [
+    {
+        image: 'https://www.radiustheme.com/demo/wordpress/themes/homlisti/wp-content/uploads/classified-listing/2022/03/daziy_millar3-1-400x240.jpg',
+        link: 'https://www.radiustheme.com/demo/wordpress/themes/homlisti/property/northwest-office-space/'
+    },
+    {
+        image: 'https://www.radiustheme.com/demo/wordpress/themes/homlisti/wp-content/uploads/classified-listing/2022/03/daziy_millar4-1-400x240.jpg',
+        link: 'https://www.radiustheme.com/demo/wordpress/themes/homlisti/property/northwest-office-space/'
+    },
+    {
+        image: 'https://www.radiustheme.com/demo/wordpress/themes/homlisti/wp-content/uploads/classified-listing/2022/03/daziy_millar5-1-400x240.jpg',
+        link: 'https://www.radiustheme.com/demo/wordpress/themes/homlisti/property/northwest-office-space/'
+    },
+    {
+        image: 'https://www.radiustheme.com/demo/wordpress/themes/homlisti/wp-content/uploads/classified-listing/2022/03/daziy_millar2-2-400x240.jpg',
+        link: 'https://www.radiustheme.com/demo/wordpress/themes/homlisti/property/northwest-office-space/'
+    }
+];
 const PropertyList = ({ listing, Category, AdType }) => {
 
     const [heart, setHeart] = useState(false);
@@ -106,6 +120,7 @@ const PropertyList = ({ listing, Category, AdType }) => {
                 animationDelay: "0.6s",
                 animationName: "fadeInUp",
             }}>
+
                 <div className="item-img">
                     <a href="#">
                         <img src="/src/assets/img/blog/blog13.jpg" alt="blog" width="250" height="200" />
@@ -133,17 +148,34 @@ const PropertyList = ({ listing, Category, AdType }) => {
                     <div className="verified-area">
                         <h3 className="item-title"><a href="#">{GetPropertyTitle(propertyObject)}</a></h3>
                     </div>
+                    <div className="listing-badge-wrap">
+                        <span className="badge rtcl-badge-popular popular-badge badge-success">Verified</span>
+                        <span className="badge rtcl-badge-_top">Top</span>
+                    </div>
                     <div className="location-area"><i className="flaticon-maps-and-flags"></i>{propertyObject[0]?.LocalityDetails?.city},{propertyObject[0]?.LocalityDetails?.state}</div>
                     <div className="item-categoery3">
                         <ul>
                             <li><i className="flaticon-bed"></i>Beds: {propertyObject[0]?.property_details?.BHKType}</li>
                             <li><i className="flaticon-shower"></i>Baths: {propertyObject[0]?.property_details?.Bathroom}</li>
                             <li><i className="flaticon-two-overlapping-square"></i>{propertyObject[0]?.property_details?.builtUpArea} Sqft</li>
+
                         </ul>
                     </div>
-                    <div className="item-price">₹                        
-                        {propertyObject[0].RentalDetails?.PropertyAvailable == "Only rent" ? propertyObject[0]?.RentalDetails?.ExpectedRent : propertyObject[0]?.RentalDetails?.LeaseAmount} 
-                        <i>/</i><span>Month</span></div>
+                    <div className="product-bottom-content"><div className="item-author">
+                        <div className="media">
+                            <img loading="lazy" width="150" height="150" src="https://www.radiustheme.com/demo/wordpress/themes/homlisti/wp-content/uploads/classified-listing/2022/01/avater-150x150.jpg" className="attachment-150x150 size-150x150" alt="" decoding="async" title="" />
+                            <div className="media-body">
+                                <div className="item-title">
+                                    <a className="author-link" href="#">
+                                        John Doe											                                        </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                        <div className="item-price">₹
+                            {propertyObject[0].RentalDetails?.PropertyAvailable == "Only rent" ? propertyObject[0]?.RentalDetails?.ExpectedRent : propertyObject[0]?.RentalDetails?.LeaseAmount}
+                            <i>/</i><span>Month</span></div>
+                    </div>
 
                 </div>
             </div>
@@ -194,8 +226,8 @@ const PropertyList = ({ listing, Category, AdType }) => {
                     </div>
                     <div className="item-price">₹
                         {propertyObject[0]?.ReSaleDetails?.ExpectedPrice}
-                        {propertyObject[0].ReSaleDetails?.PriceNegotiable == "Yes" && <><i>/</i><span>(Negotiable)</span></>   }
-                        </div>
+                        {propertyObject[0].ReSaleDetails?.PriceNegotiable == "Yes" && <><i>/</i><span>(Negotiable)</span></>}
+                    </div>
 
                 </div>
             </div>
@@ -356,11 +388,11 @@ const PropertyList = ({ listing, Category, AdType }) => {
     }
 
 
-    return (       
-            
+    return (
+
         <>{renderContent()}</>
-              
-       
+
+
     )
 }
 export default PropertyList

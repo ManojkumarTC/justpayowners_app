@@ -1,31 +1,46 @@
 
 
+import {  FAQs  } from "../components";
+import { useEffect, useState } from "react";
+import fetchFAQs from "../common/FAQ/getFAQs";
+import { useSelector } from "react-redux";
 
-
-
-
-import Jsonfooter from '../mockdata/footerData.json';
-import { NavLink, Link } from 'react-router-dom';
 const Faq = function () {
     console.log("Faq- Render")
+
+  
+    const { userId } = useSelector((state) => state.auth);
+    const [FAQS, setFAQS] = useState([]);
+    useEffect(() => {
+        fetchFAQs(userId)
+            .then((resp) => {
+                console.log("FAQS - ", resp);
+                setFAQS(resp.data);
+            })
+            .catch((error) => {
+                console.error("Error fetching FAQS:", error);
+            });
+    }, []);
+
+
     return (<>
-        <main className="site-main content-area">
+        <section className="grid-wrap3">
             <div className="container">
                 <div className="row">
                     <div className="col-lg-12 col-sm-12 col-12">
                         <div className="page-content-block">
                             <div className="col-md-12 rtcl-login-form-wrap">
-                                <h4>About us</h4>
+                                <h4>FAQs</h4>
 
 
-
+                                <FAQs data={FAQS} />
 
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </main>      
+        </section>      
     </>
     );
 };

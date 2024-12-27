@@ -1,22 +1,19 @@
 
 
-
-
-
-
 import Jsonfooter from '../mockdata/footerData.json';
 import { NavLink, Link } from 'react-router-dom';
 const PlanPrices = function () {
     console.log("PlanPrices- Render")
     return (<>
-        <section className="pricing-wrap1">
+        <section className="grid-wrap3">
             <div className="container">
+                <div className="col-md-12 rtcl-login-form-wrap">
                 <div className="item-heading-center mb-20">
                     <span className="section-subtitle">Price Table</span>
                     <h2 className="section-title">Affortable Pricing Plan</h2>
-                    <div className="bg-title-wrap" style={{ display: "block" }}>
-                        <span className="background-title solid">Pricing</span>
-                    </div>
+                    {/*<div className="bg-title-wrap" style={{ display: "block" }}>*/}
+                    {/*    <span className="background-title solid">Pricing</span>*/}
+                    {/*</div>*/}
                 </div>
                 <div className="row justify-content-center">
                     <div className="col-xl-4 col-lg-6 col-md-6">
@@ -96,6 +93,7 @@ const PlanPrices = function () {
                                 <a href="#" className="item-btn">Get Started</a>
                             </div>
                         </div>
+                    </div>
                     </div>
                 </div>
             </div>
