@@ -8270,7 +8270,7 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
     flex: 1;
 }
 
-.rld-single-select.item.select-type select{
+.rld-single-select.item.select-type {
     padding-right: 0px !important;
 }
 
