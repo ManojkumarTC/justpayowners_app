@@ -7,7 +7,7 @@ import JPOapi from "../../common";
 import fetchHomePageProperties from '../../common/property/getHomePagePropertiesData';
 import PropertyCard from './PropertyCard';
 
-const PropertyHighlights = ({ headline, userId, url }) => {
+const PropertyHighlights = ({ headline, userId, url,template}) => {
 
     const [pickedData, setPickedData] = useState([]);
     const [viewAllLink, setViewAllLink] = useState("");
@@ -72,15 +72,26 @@ const PropertyHighlights = ({ headline, userId, url }) => {
     }, [headline, userId, url]);
 
 
-    return (<>
-        <section className="property-wrap1">
+    const renderContent = () => {
+        console.log(template)
+        if (template === 'Landing') {
+            return Landing();
+        } else if (template === 'Blog') {
+            return Blog();       
+        } else {
+            return <div>no Match</div>;
+        }
+    };    
+
+    function Landing() {
+        return (<section className="property-wrap1">
             <div className="container">
                 <div className="isotope-wrap">
                     <div className="row">
                         <div className="col-lg-6 col-md-5 col-sm-12">
                             <div className="item-heading-left">
                                 <span className="section-subtitle">Our PROPERTIES</span>
-                                <h2 className="section-title">Latest Properties</h2>                               
+                                <h2 className="section-title">Latest Properties</h2>
                             </div>
                         </div>
                         <div className="col-lg-6 col-md-7 col-sm-12">
@@ -181,8 +192,57 @@ const PropertyHighlights = ({ headline, userId, url }) => {
                     </div>
                 </div>
             </div>
-        </section>
-    </>
+        </section>)
+    }
+
+    function Blog() {
+        return (<>
+            {pickedData &&
+                pickedData.map((item, index) => (
+                    <div className="widget-listing no-brd" key={index} > 
+                        <div className="item-img">
+                           
+
+                            <a target="_blank" width="120" height="102"href={"/property/" + item.category.split(" ").join("/").toLowerCase() + "/" + item.propertyTitle + "/" + item.propertyID + "/detail?justpayowners=" + item.category.split(" ").join("_").toLowerCase() + "_list"} >
+
+                                <img src={JSON.parse(item.propertyObject)?.GalleryDetails != undefined ? JSON.parse(item.propertyObject)?.GalleryDetails[0] : ""} alt='widget'
+                                    width={'120'}
+                                    height={'102'}
+                                />
+                            </a>
+
+                        </div>
+                        <div className="item-content">
+                            <h5 className="item-title">
+                            <a target="_blank" className="text-color" href={"/property/" + item.category.split(" ").join("/").toLowerCase() + "/" + item.propertyTitle + "/" + item.propertyID + "/detail?justpayowners=" + item.category.split(" ").join("_").toLowerCase() + "_list"} >
+                                {item?.propertyTitle}</a>
+                            </h5>
+                            <div className="location-area"><i className="flaticon-maps-and-flags"></i>
+                                
+                                {JSON.parse(item.propertyObject)?.LocalityDetails?.landmark ? JSON.parse(item.propertyObject)?.LocalityDetails?.landmark + ", " : ""}
+                                {JSON.parse(item.propertyObject)?.LocalityDetails?.street ? JSON.parse(item.propertyObject)?.LocalityDetails?.street + ", " : ""}
+                                {JSON.parse(item.propertyObject)?.LocalityDetails?.locality ? JSON.parse(item.propertyObject)?.LocalityDetails?.locality + ", " : ""}
+                                {JSON.parse(item.propertyObject)?.LocalityDetails?.city ? JSON.parse(item.propertyObject)?.LocalityDetails?.city + ", " : ""}
+                                {JSON.parse(item.propertyObject)?.LocalityDetails?.state ? JSON.parse(item.propertyObject)?.LocalityDetails?.state + ", " : ""}
+
+
+                            </div>
+                            <div className="item-price">
+                                $ {item.expectedRent}
+                                <span><i>/</i>month</span>
+                            </div>
+                        </div>
+                    </div>
+                )
+                )}
+        </> )
+    }
+
+
+    return (      
+
+        <>{renderContent()}</>
+    
     );
 };
 

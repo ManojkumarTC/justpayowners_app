@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Tabs, Tab } from "react-bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
+//import "bootstrap/dist/css/bootstrap.min.css";
 import { NavLink } from 'react-router-dom'
 
 function QuickLinksTabs() {
@@ -57,6 +57,40 @@ function QuickLinksTabs() {
         "Mahadevapura",
         "Chandapura"
     ]
+
+    const districts = [
+        "Bagalkot",
+        "Ballari (Bellary)",
+        "Belagavi (Belgaum)",
+        "Bengaluru Rural",
+        "Bengaluru Urban",
+        "Bidar",
+        "Chamarajanagar",
+        "Chikballapur",
+        "Chikkamagaluru (Chikmagalur)",
+        "Chitradurga",
+        "Dakshina Kannada",
+        "Davanagere",
+        "Dharwad",
+        "Gadag",
+        "Hassan",
+        "Haveri",
+        "Kalaburagi (Gulbarga)",
+        "Kodagu",
+        "Kolar",
+        "Koppal",
+        "Mandya",
+        "Mysuru (Mysore)",
+        "Raichur",
+        "Ramanagara",
+        "Shivamogga (Shimoga)",
+        "Tumakuru (Tumkur)",
+        "Udupi",
+        "Uttara Kannada (Karwar)",
+        "Vijayapura (Bijapur)",
+        "Yadgir"
+    ];
+
     const tabData = [
         {
             title: "Residential Properties For Rent",
@@ -175,12 +209,24 @@ function QuickLinksTabs() {
             ],
         }, 
         {
-            title: "Bank Auction Property",
+            title: "District Wise Property",
             icon: "fas fa-cogs",
             content: [
                 {
-                    parent: "Flat"                   
+                    parent: "Flats Or House For Rent"
+                },               
+                {
+                    parent: "Commercial Properties For Rent"
                 },
+                {
+                    parent: "Flats Or House For Sale"
+                },  
+                {
+                    parent: "Commercial Properties For Sale"
+                },              
+                {
+                    parent: "Plots / Land For Sale",
+                }               
             ],
         },
         {
@@ -191,34 +237,65 @@ function QuickLinksTabs() {
                     parent: "Builders Projects",                   
                 },
             ],
-        },
-        {
-            title: "Verified Proeprties",
-            icon: "fas fa-cogs",
-            content: [
-                {
-                    parent: "Verified Proeprties",                    
-                },
-            ],
-        },
+        }      
     ];
 
-    const geturl = (parent, child) => {
+    const getDistrictTitle = (parent, Category, child) => {
+        switch (Category) {
+            case "Flats Or House For Rent":
+                return "property/residential_rentals/" + child;
+            case "Flats Or House For Sale":
+                return "property/residential_sales/" + child;
+            case "Commercial Properties For Rent":
+                return "property/commercial_rentals/" + child;
+            case "Commercial Properties For Sale":
+                return "property/commercial_sales/" + child;
+            case "Plots / Land For Sale":
+                return "property/plotsales/" + child;         
+            case "Builder Projects":
+                return "property/" + child;
+            default:
+                return Category; // A fallback route if no match is found
+        }
+    };
+
+    const geturl = (parent, Category, child) => {
         switch (parent) {
             case "Residential Properties For Rent":
-                return "/home";
+                return "property/residential_rentals/" + child;
             case "Residential Properties For Sale":
-                return "/about";
+                return "property/residential_sales/" + child;
             case "Commercial Properties For Rent":
-                return "/services";
+                return "property/commercial_rentals/" + child;
             case "Commercial Properties For Sale":
-                return "/contact";
+                return "property/commercial_sales/" + child;
             case "Land or Plots For Sale":
-                return "/contact";
+                return "property/plotsales/" + child;
+            case "District Wise Property":
+                return getDistrictTitle(parent, Category, child);
+            case "Builder Projects":
+                return "property/" + child;
+            default:
+                return "/not-found"; // A fallback route if no match is found
+        }
+    };
+
+    const getTitle = (parent, Category, child) => {
+        switch (parent) {
+            case "Residential Properties For Rent":
+                return Category + " " + child;
+            case "Residential Properties For Sale":
+                return Category + " " + child;
+            case "Commercial Properties For Rent":
+                return Category + " " + child;
+            case "Commercial Properties For Sale":
+                return Category + " " + child;
+            case "Land or Plots For Sale":
+                return Category + " " + child;
             case "Bank Auction Property":
-                return "/contact";
-            case "Builder Proeprties":
-                return "/contact";
+                return Category + " " + child;
+            case "District Wise Property":
+                return Category + " " + child;
             default:
                 return "/not-found"; // A fallback route if no match is found
         }
@@ -228,7 +305,7 @@ function QuickLinksTabs() {
 
     return (
 
-        <div className="footer-top">
+        <div className="footer-top QuickLinksTabs">
             <div className="row justify-content-between">
 
                <Tabs
@@ -243,26 +320,39 @@ function QuickLinksTabs() {
                         eventKey={tab.title}
                         title={
                             <>
-                                <i className={`${tab.icon} me-2`}></i>
+                                
                                 {tab.title}
                             </>
                         }
                     >
                         <div>                           
-                            <ul >
+                            <ul id="dynamic-tabs-content">
                                 {tab.content.map((item, i) => (
                                     <li key={i}>
-                                        {item.parent}
-                                        {residentialAreas && (
+                                        <div class="property-type-title">{item.parent}</div>
+                                        {tab.title != "District Wise Property" && residentialAreas && (
                                             <div className="item-link">   
                                             <ul >
                                                 {residentialAreas.map((child, j) => (                                                   
 
                                                      <li key={j}>
-                                                        <NavLink to={geturl(tab.title, child)}>{child}</NavLink>
+                                                        <NavLink to={geturl(tab.title, item.parent, child)}>{getTitle(tab.title, item.parent,child)}</NavLink>
                                                     </li>
                                                 
                                                 ))}
+                                                </ul>
+                                            </div>
+                                        )}
+                                        {tab.title == "District Wise Property" && districts && (
+                                            <div className="item-link">
+                                                <ul >
+                                                    {districts.map((child, j) => (
+
+                                                        <li key={j}>
+                                                            <NavLink to={geturl(tab.title, item.parent, child)}>{getTitle(tab.title, item.parent, child)}</NavLink>
+                                                        </li>
+
+                                                    ))}
                                                 </ul>
                                             </div>
                                         )}

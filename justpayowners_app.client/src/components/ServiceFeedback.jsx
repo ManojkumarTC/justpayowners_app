@@ -1,10 +1,11 @@
-import React from 'react';
+
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
+import TimeAgo from 'react-timeago'
 
-const PropetyTestimonial = () => {
+const ServiceFeedback = ({ data }) => {
     return (
         <section className="testimonial-wrap2">
             <div className="container">
@@ -35,32 +36,13 @@ const PropetyTestimonial = () => {
                                 loop={true}
                                 className="testimonial-layout2"
                             >
-                                {[
-                                    {
-                                        text: '“ Engage with our professional real estate agents to sell, buy, or rent your home. Get emails directly in your inbox and easily manage leads. ”',
-                                        rating: 5,
-                                        name: 'Maria Zokatti',
-                                        position: 'CEO, PSDBOSS',
-                                    },
-                                    {
-                                        text: '“ We provide top-notch service, ensuring you find your dream home seamlessly and efficiently. ”',
-                                        rating: 5,
-                                        name: 'John Doe',
-                                        position: 'Manager, HomeFinder',
-                                    },
-                                    {
-                                        text: '“ Trust our expertise in navigating the real estate market to find or sell properties quickly. ”',
-                                        rating: 5,
-                                        name: 'Jane Smith',
-                                        position: 'Agent, RealtyCorp',
-                                    },
-                                ].map((testimonial, index) => (
+                                {data.length > 0 ? (data.sort(() => Math.random() - 0.5).slice(0, 2).map((testimonial, index) =>
                                     <SwiperSlide key={index}>
                                         <div className="single-test">
                                             <div className="item-quotation">
                                                 <i className="fas fa-quote-left"></i>
                                             </div>
-                                            <p>{testimonial.text}</p>
+                                            <p>{testimonial.content} ( <TimeAgo date={testimonial.createdAt} /> )</p>
                                             <ul className="item-rating">
                                                 {Array(testimonial.rating)
                                                     .fill()
@@ -71,14 +53,14 @@ const PropetyTestimonial = () => {
                                                     ))}
                                             </ul>
                                             <div className="item-title">
-                                                <h3>{testimonial.name}</h3>
+                                                <h3>{testimonial.fullName} </h3>
                                             </div>
                                             <div className="item-subtitle">
-                                                <h4>{testimonial.position}</h4>
+                                                <h4>{testimonial.response}</h4>
                                             </div>
                                         </div>
                                     </SwiperSlide>
-                                ))}
+                                )) : <div className="text-center">No Future Testimonials found</div>}
                             </Swiper>
 
                             <div className="swiper-button-prev testimonial-btn"></div>
@@ -104,4 +86,4 @@ const PropetyTestimonial = () => {
     );
 };
 
-export default PropetyTestimonial;
+export default ServiceFeedback;

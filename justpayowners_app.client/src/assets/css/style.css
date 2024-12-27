@@ -154,20 +154,26 @@ h6 {
     font-size: 19px;
     line-height: 24px;
 }
+
 /*=======================================================================
 2. Variables 
 ========================================================================*/
 :root {
     --font-family-body: "Roboto", sans-serif;
     --font-family-heading: "Ubuntu", sans-serif;
-    --rt-primary-color: #1877F2; /* Facebook Blue */
-    --rt-primary-dark: #145dbf; /* A darker shade */
-    --rt-primary-light: #4c99f5; /* A lighter shade */
-    --rt-secondary-color: #1877F2; /* Or a complementary color if desired */
+    --rt-primary-color: #1877F2;
+    /* Facebook Blue */
+    --rt-primary-dark: #145dbf;
+    /* A darker shade */
+    --rt-primary-light: #4c99f5;
+    /* A lighter shade */
+    --rt-secondary-color: #1877F2;
+    /* Or a complementary color if desired */
     --rt-primary-rgb: 0, 193, 148;
     --rt-secondary-rgb: 7, 193, 150;
     --transition: 0.3s ease-in-out;
 }
+
 /*=======================================================================
 3. Bootstrap Overwrite
 =========================================================================*/
@@ -266,6 +272,7 @@ h6 {
         color: #878c9f;
         font-size: 14px;
     }
+
 /*------------------- 3.2 Grid -------------------*/
 @media only screen and (min-width: 1270px) {
     .container {
@@ -464,6 +471,7 @@ h6 {
             padding-right: 25px;
         }
 }
+
 /*=======================================================================
 4. Vendor Custom Style 
 =========================================================================*/
@@ -523,6 +531,7 @@ h6 {
 .owl-theme .owl-dots .owl-dot:hover span {
     background-color: #fff;
 }
+
 /*=======================================================================
 5.Template Layout Style
 =========================================================================*/
@@ -548,6 +557,7 @@ h6 {
     #back-to-top:hover {
         background: var(--rt-primary-dark);
     }
+
 /*------------------- 5.2 Custom-Checkbox -------------------*/
 .text-dark {
     color: #000000;
@@ -990,6 +1000,7 @@ input {
 .checkbox-button__control {
     transform: scale(0.75);
 }
+
 /*------------------- 5.3 Footer -------------------*/
 .footer-top {
     padding: 50px 0px;
@@ -1447,6 +1458,7 @@ input {
     .footer-bottom-style-2 .copyright-area2 p {
         color: #758597;
     }
+
 /*------------------- 5.4 Global -------------------*/
 a {
     text-decoration: none;
@@ -1488,6 +1500,7 @@ ul {
     .form-response .alert.alert-success p {
         margin-bottom: 0;
     }
+
 /*------------------- 5.5 Header Menu -------------------*/
 header.header {
     position: fixed;
@@ -1816,7 +1829,7 @@ nav.template-main-menu > ul > li .template-mega-menu {
     opacity: 0;
     visibility: hidden;
     top: 100%;
-    padding: 20px 0 0;
+    padding: 5px 0 0;
     transform: translateY(15px);
     -webkit-box-shadow: 0px 3px 20px 0px rgba(0, 0, 0, 0.05);
     -moz-box-shadow: 0px 3px 20px 0px rgba(0, 0, 0, 0.05);
@@ -1832,7 +1845,6 @@ nav.template-main-menu > ul > li .template-mega-menu {
         font-size: 16px;
         font-weight: 550;
         color: #212121;
-        margin-bottom: 15px;
     }
 
     nav.template-main-menu > ul > li .template-mega-menu ul.sub-menu {
@@ -1840,9 +1852,8 @@ nav.template-main-menu > ul > li .template-mega-menu {
     }
 
         nav.template-main-menu > ul > li .template-mega-menu ul.sub-menu li {
-            margin-bottom: 5px;
-            padding-bottom: 7px;
-            border-bottom: 1px solid #ebebeb;
+            margin-bottom: 0px;
+            padding-bottom: 0px;
         }
 
             nav.template-main-menu > ul > li .template-mega-menu ul.sub-menu li:last-child {
@@ -1863,6 +1874,7 @@ nav.template-main-menu > ul > li .template-mega-menu {
                 -o-transition: all 0.5s cubic-bezier(0, 0, 0.15, 1.88);
                 transition: all 0.5s cubic-bezier(0, 0, 0.15, 1.88);
                 position: relative;
+                line-height: 1.5;
             }
 
                 nav.template-main-menu > ul > li .template-mega-menu ul.sub-menu li a i {
@@ -2007,7 +2019,7 @@ nav.template-main-menu > ul > li:hover .template-mega-menu {
     color: #212121;
     margin-right: 20px;
     cursor: pointer;
-    position: relative;
+    position: static;
     display: flex;
 }
 
@@ -3258,6 +3270,7 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
             display: block;
             padding: 10px 20px;
         }
+
 /*------------------- 5.6 Heading Part -------------------*/
 .item-heading-left {
     position: relative;
@@ -3524,6 +3537,7 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
         margin-bottom: 24px;
     }
 }
+
 /*------------------- 5.7 Keyframe Animation -------------------*/
 @-webkit-keyframes moveclouds {
     0% {
@@ -3676,6 +3690,7 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
         transform: translateY(0) translateX(0);
     }
 }
+
 /*------------------- 5.8 Pagination -------------------*/
 .pagination-style-1 {
     margin-top: 24px;
@@ -3788,6 +3803,7 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
             font-size: 20px;
             transition: all 0.3s ease-in-out;
         }
+
 /*------------------- 5.9 Play Button -------------------*/
 .play-btn.play-btn-big .play-icon {
     background: #fff;
@@ -3886,6 +3902,7 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
         opacity: 0;
     }
 }
+
 /*------------------- 5.10 Preloader -------------------*/
 #preloader {
     background: url("img/preloader.gif") rgba(255, 255, 255, 0.99) no-repeat scroll center center;
@@ -3897,6 +3914,7 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
     width: 100%;
     z-index: 9999999;
 }
+
 /*------------------- 5.11 Skills Wrap -------------------*/
 .skills-wrap-layout-2 {
     margin: 15px 0;
@@ -4121,6 +4139,7 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
         justify-content: center;
     }
 }
+
 /*------------------- 5.12 Tooltip -------------------*/
 .bs-tooltip-top {
     margin-top: 50px;
@@ -4183,6 +4202,7 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
     bottom: 0;
     border-bottom-color: var(--rt-primary-color);
 }
+
 /*------------------- 5.13 Widget -------------------*/
 .sidebar-widget .widget {
     margin-bottom: 40px;
@@ -5476,6 +5496,7 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
 .widget-price-range .wid-contact-button {
     margin-bottom: 0 !important;
 }
+
 /*=======================================================================
 6. Template Page Style
 =========================================================================*/
@@ -5604,7 +5625,7 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
 }
 
 .about-wrap-5 {
-    padding: 40px 0px;
+    padding: 110px 0px;
     position: relative;
     background-color: #eaf7f4;
     overflow: hidden;
@@ -6465,9 +6486,10 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
 .about-img-style-6 {
     margin-top: 20px;
 }
+
 /*------------------- 6.2 Action Wrap -------------------*/
 .action-wrap1 {
-    padding: 100px 0px 110px;
+    padding: 50px 0px 50px;
 }
 
 @media only screen and (max-width: 991px) {
@@ -6598,6 +6620,7 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
             width: 100%;
             left: 0;
         }
+
 /*------------------- 6.3 Agent -------------------*/
 .agent-wrap1 {
     padding: 55px 0px 80px;
@@ -7381,6 +7404,7 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
         color: #788593;
         font-size: 16px;
     }
+
 /*------------------- 6.4 banner -------------------*/
 .banner-collection1 {
     background-color: #eaf7f4;
@@ -7877,6 +7901,7 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
         margin-right: -90px;
     }
 }
+
 /*------------------- 6.5 Banner Search -------------------*/
 .banner-search-wrap {
     margin: 0px 110px;
@@ -8245,8 +8270,16 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
     flex: 1;
 }
 
+.rld-single-select.item.select-type {
+    padding-right: 0px !important;
+}
+
+.rld-single-input.item.input-box  {
+    flex: 2.5;
+}
+
 @media only screen and (max-width: 1199px) {
-    .box .box-top .item {
+    .box .box-top .item, .rld-single-input.item.input-box {
         flex: auto;
     }
 }
@@ -8259,7 +8292,7 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
 
 .box .box-top .rt-filter-btn {
     display: flex;
-    max-width: 189px;
+    max-width: 115px;
     align-items: center;
 }
 
@@ -8901,7 +8934,7 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
     font-size: 13px;
     font-weight: 700;
     text-transform: uppercase;
-    padding: 0px 10px;
+    padding: 0px 30px;
     line-height: 60px;
     margin-right: -3px;
     transition: all ease 0.5s;
@@ -8933,6 +8966,7 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
         margin-left: 0;
     }
 }
+
 /*------------------- 6.6 Property Banner -------------------*/
 .property-banner-wrap1 {
     padding: 150px 0px 145px;
@@ -9080,10 +9114,11 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
         display: none;
     }
 }
+
 /*------------------- 6.7 Main Banner -------------------*/
 .main-banner-wrap1 {
     position: relative;
-    padding: 100px 0px;
+    padding: 180px 0px;
     background: no-repeat center center / cover;
     z-index: 2;
 }
@@ -9146,7 +9181,7 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
     background-color: #F1F8F6;
     position: relative;
     overflow: hidden;
-    min-height: 540px;
+    min-height: 840px;
 }
 
     .main-banner-wrap6 .item-banner-thumb {
@@ -9918,6 +9953,7 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
         display: initial;
     }
 }
+
 /*------------------- 6.8 Blog -------------------*/
 .blog-wrap1 {
     padding: 100px 0px 110px 0px;
@@ -10482,6 +10518,7 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
         margin-bottom: 0;
     }
 }
+
 /*------------------- 6.9 Brand -------------------*/
 .brand-wrap1 {
     padding: 95px 0px 100px 0px;
@@ -10649,6 +10686,7 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
     min-width: 200px;
     min-height: 117px;
 }
+
 /*------------------- 6.10 Breadcrumb -------------------*/
 .breadcrumb-wrap {
     background-color: #eaf7f4;
@@ -10697,6 +10735,7 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
     font-weight: 600;
     font-family: "Font Awesome 5 Free";
 }
+
 /*------------------- 6.11 Contact -------------------*/
 .contact-wrap {
     padding: 110px 0px 110px;
@@ -10788,7 +10827,7 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
 
 .contact-box1 .contact-content .phone-box {
     position: relative;
-    padding-left: 40px;
+    padding-left: 0px;
     border-bottom: 1px solid #f3f3f3;
     padding-bottom: 22px;
 }
@@ -10819,7 +10858,7 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
 .contact-box1 .contact-content .social-box {
     margin-top: 20px;
     position: relative;
-    padding-left: 40px;
+    padding-left: 0px;
 }
 
     .contact-box1 .contact-content .social-box .item-lebel {
@@ -11010,6 +11049,7 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
         left: 0;
         transition: all 0.3s ease-in-out;
     }
+
 /*------------------- 6.12 Error Page-------------------*/
 .error-wrap {
     padding: 230px 0px 180px;
@@ -11162,6 +11202,7 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
         left: 55%;
         z-index: -1;
     }
+
 /*------------------- 6.13 Feature -------------------*/
 .feature-wrap1 {
     padding: 110px 0px;
@@ -11182,7 +11223,7 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
 
 .feature-wrap2 {
     background-color: #0E2E50;
-    padding: 50px 0px;
+    padding: 100px 0px;
 }
 
 @media only screen and (max-width: 991px) {
@@ -12077,7 +12118,8 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
     }
 
 .feature-wrap2 .feature-layout-nav-button-wrap {
-    text-align: right;
+    display: flex;
+    justify-content: end;
 }
 
 @media only screen and (max-width: 991px) {
@@ -12104,6 +12146,7 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
     font-size: 16px;
     font-weight: 600;
     color: var(--rt-primary-color);
+    margin-right: 10px;
 }
 
 .feature-wrap2 .feature-layout-nav-button-wrap .feature-btn-next {
@@ -12120,6 +12163,7 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
     font-weight: 600;
     color: var(--rt-primary-color);
 }
+
 /*------------------- 6.14 Form Wrap -------------------*/
 .form-section-wrap1 {
     padding: 40px;
@@ -12417,6 +12461,7 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
         transition: all 0.3s ease-in-out;
         z-index: -1;
     }
+
 /*------------------- 6.15 Grid Wrap -------------------*/
 .grid-wrap1 {
     padding: 40px 0px;
@@ -12594,6 +12639,7 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
         padding: 10px 0px 50px 0px;
     }
 }
+
 /*------------------- 6.16 Location -------------------*/
 .location-wrap1 {
     padding: 100px 0px 110px;
@@ -13084,6 +13130,7 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
         opacity: 1;
     }
 }
+
 /*------------------- 6.17 Newsletter -------------------*/
 .newsletter-wrap1 {
     padding: 70px 0px 50px 0px;
@@ -13393,6 +13440,7 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
     transition: all 0.3s ease-in-out;
     z-index: -2;
 }
+
 /*------------------- 6.18 Pricing -------------------*/
 .pricing-wrap1 {
     padding: 100px 0px 110px;
@@ -13581,6 +13629,7 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
     left: 0;
     transition: all 0.3s ease-in-out;
 }
+
 /*------------------- 6.19 Progress Bar -------------------*/
 .progress-bar-wrap1 {
     background-color: #0e2e50;
@@ -13730,9 +13779,10 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
         font-weight: 400;
         color: #ffffff;
     }
+
 /*------------------- 6.20 Property -------------------*/
 .property-wrap1 {
-    padding: 50px 0px 80px;
+    padding: 100px 0px 80px;
     background-color: #f2f2f2;
     overflow: hidden;
 }
@@ -15684,6 +15734,7 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
         display: none;
     }
 }
+
 /*------------------- 6.21 Single Listing -------------------*/
 .single-listing-wrap1 {
     padding: 20px 0px 0px 0px;
@@ -16517,6 +16568,7 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
         width: 100%;
     }
 }
+
 /*------------------- 6.22 Single Slider-------------------*/
 .single-slider-wrap1 {
     position: relative;
@@ -16779,6 +16831,7 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
             .single-listing-wrap2 .single-listing-box4 .item-img img {
                 border-radius: 6px;
             }
+
 /*------------------- 6.23 Team -------------------*/
 .team-wrap1 {
     padding: 100px 0px 10px 0px;
@@ -17500,6 +17553,7 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
     padding: 0;
     margin-bottom: 20px;
 }
+
 /*------------------- 6.24 Testimonial -------------------*/
 .testimonial-wrap1 {
     padding: 100px 0px 0px 0px;
@@ -18121,6 +18175,7 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
         right: 0;
     }
 }
+
 /*------------------- 6.25 Why-Choose -------------------*/
 .why-choose-wrap1 {
     padding: 100px 0px 110px;
@@ -18455,6 +18510,7 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
             position: relative;
             top: 3px;
         }
+
 /*------------------- 6.26 Compare -------------------*/
 .site-main {
     background-color: #eaf7f4;
@@ -18501,6 +18557,7 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
 }
 
 @media only screen and (max-width: 575px) {
+
     .page-title-wrap .page-title,
     .single-blog .single-blog-content .blog-content .post-title {
         margin-bottom: 10px;
@@ -18508,6 +18565,7 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
 }
 
 @media only screen and (max-width: 479px) {
+
     .page-title-wrap .page-title,
     .single-blog .single-blog-content .blog-content .post-title {
         font-size: 26px;
@@ -18518,6 +18576,7 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
     display: inline-block;
     width: 100%;
 }
+
 /*------------------- 6.27 My Account -------------------*/
 .rtcl-login-form-wrap {
     background-color: #fff;
@@ -18618,6 +18677,7 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
         }
 
 @-webkit-keyframes checkHover {
+
     0%, 100% {
         transform: scale(1);
     }
@@ -18628,6 +18688,7 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
 }
 
 @keyframes checkHover {
+
     0%, 100% {
         transform: scale(1);
     }
@@ -18718,6 +18779,7 @@ Bootstrap4 Card with Tabs by @mdeuerlein
 .tab-card-header {
     background: none;
 }
+
     /* Default mode */
     .tab-card-header > .nav-tabs {
         border: none;
@@ -18748,3 +18810,91 @@ Bootstrap4 Card with Tabs by @mdeuerlein
     .tab-card-header > .tab-content {
         padding-bottom: 0;
     }
+
+#main-banner-tabs .nav-link {
+    background-color: #fff;
+    margin-right: 4px;
+}
+
+    #main-banner-tabs .nav-link.active {
+        background-color: #467fcf !important;
+        color: white !important;
+    }
+
+ul#dynamic-tabs .nav-link {
+    border-radius: 8px;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, .06);
+    border: solid 1px #e1e1e1;
+    background: #fff;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 700;
+    color: #333;
+    cursor: pointer;
+    white-space: nowrap;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+ul#dynamic-tabs {
+    gap: 12px;
+    overflow: hidden;
+    overflow-x: auto;
+}
+
+#dynamic-tabs .nav-item:has(nav-link.active) {
+    border: solid 1px #333;
+    cursor: default;
+    background-color: #333 !important;
+    color: #fff;
+}
+
+ul#dynamic-tabs .nav-link.active {
+    border: solid 1px #467fcf;
+    cursor: default;
+    background: #467fcf;
+    color: #fff;
+}
+
+.footer-top .tab-content .property-type-title {
+    padding-bottom: 5px;
+    margin-bottom: 8px;
+    color: #000;
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 600;
+    display: block;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    white-space: nowrap;
+    border-bottom: #e6e6e6 solid 1px;
+}
+
+
+.footer-top .tab-content .item-link a {
+    color: #333 !important;
+    font-size: 12px;
+    line-height: 24px;
+}
+
+#dynamic-tabs-content > li {
+    margin-right: 30px;
+    margin-bottom: 30px;
+}
+
+#dynamic-tabs-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+#copyright {
+    background-color: #fff;
+    padding: 15px;
+    margin: 0px -30px;
+}

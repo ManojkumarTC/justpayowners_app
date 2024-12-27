@@ -15,8 +15,9 @@ const SiteFooter = function () {
   return (<>      
       <BannerBox />
       <footer className="footer-area">
-          <QuickLinks json={Jsonfooter} />
+         
           <QuickLinksTabs json={Jsonfooter} />
+          
           <CompanyRights json={Jsonfooter} />
       </footer>
              

@@ -19,9 +19,10 @@ const BlogPostDetails = function ({ blogDetails, blogPosts }) {
                                     <div className="item-content">
                                         <div className="entry-meta">
                                             <ul>
-                                                <li className="theme-cat"><a href="blog1.html"><img src="https://radiustheme.com/demo/html/homlisti/theme1.png" alt="theme" width="31" height="31" />{blogDetails.source}</a></li>
-                                                <li className="calendar-icon"><a href="blog1.html"><i className="far fa-calendar-alt"></i>{moment(blogDetails.publishDate).format("Do MMMM  YYYY")}</a></li>
-                                                <li><a href="#">Apartment, Room</a></li>
+                                                <li className="theme-cat"><a href="blog1.html">
+                                                    {blogDetails.source}</a></li>
+                                                <li className="calendar-icon"><a href="blog1.html"><i className="far fa-calendar-alt"></i>{moment(blogDetails.publishDate).format("DD MMMM  YYYY")}</a></li>
+                                                <li><a href="#">{blogDetails.category}</a></li>
                                                 <li><a href="#">5 mins - {blogDetails.commentCount}</a></li>
                                             </ul>
                                         </div>
@@ -76,7 +77,7 @@ const BlogPostDetails = function ({ blogDetails, blogPosts }) {
                                 {blogDetails.category != null && blogDetails.category != undefined && blogDetails.category != "string" && blogDetails.category.split(",").map((category, index) => (
 
                                    
-                                    <li key="{index}"><a href="#">{category}<span className="categoery-count">03</span></a></li>
+                                    <li key="{index}"><a href={"../../blog/" + category}>{category}<span className="categoery-count"></span></a></li>
                                 ))}
 
                             </ul>
@@ -87,7 +88,7 @@ const BlogPostDetails = function ({ blogDetails, blogPosts }) {
                             <ul className="tag-list">
                             {blogDetails.tags != null && blogDetails.tags != undefined && blogDetails.tags != "string" && blogDetails.tags.split(",").map((tag, index) => (
                                
-                                <li key={index}><a href="#">{tag}</a></li>
+                                <li key={index}><a href={"../../blog/" +tag}>{tag}</a></li>
                             ))}
                             </ul>
                             
@@ -103,7 +104,7 @@ const BlogPostDetails = function ({ blogDetails, blogPosts }) {
                                 </div>
                                 <div className="item-content">
                                     <h5 className="item-title"><a href={"/BlogDetails/" + item.title + "/" + item.blogPostID}>{item.title}</a></h5>
-                                    <div className="location-area"><i className="flaticon-maps-and-flags"></i>{moment(item.publishDate).format("Do MMMM  YYYY")}</div>
+                                    <div className="location-area"><i className="flaticon-maps-and-flags"></i>{moment(item.publishDate).format("DD MMMM  YYYY")}</div>
                                         <div className="item-price">{item.category}</div>
                                 </div>
                             </div>

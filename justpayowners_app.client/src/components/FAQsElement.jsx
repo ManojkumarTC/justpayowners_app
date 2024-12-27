@@ -21,7 +21,7 @@ const FAQs = function ({ data }) {
                         {Object.keys(groupedData).length > 0 ? (
                             Object.keys(groupedData).map((categoryTitle, index) => (
                                 <div className="space-y-1" key={index}>
-                                    <h4 className="mb-3">{index + 1}. {categoryTitle}</h4>
+                                    <h4 className="mb-3 mt-3">{index + 1}. {categoryTitle}</h4>
                                     <div id={`faq-${index + 1}`} className="accordion" role="tablist" aria-multiselectable="true">
                                         {groupedData[categoryTitle].map((faq, faqIndex) => (
                                             <div className="accordion-item" key={faqIndex}>

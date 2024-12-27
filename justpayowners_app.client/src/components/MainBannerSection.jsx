@@ -17,8 +17,9 @@ const MainBannerSection = () => {
         <section className="main-banner-wrap1 main-banner-wrap6 motion-effects-wrap">
             <div className="container">
                 <div className="row">
-                    <div className="col-xl-9">
+                    <div className="col-xl-12">
                         <div className="main-banner-box1 main-banner-box6">
+                        <div className="col-xl-9">
                             <h1
                                 className="item-title wow fadeInUp"
                                 data-wow-delay=".4s"
@@ -30,12 +31,13 @@ const MainBannerSection = () => {
                             >
                                 Find the perfect place to Live with your family
                             </h1>
-
+                            </div>
+                            <div className="col-xl-12">
                             {/* Tabs */}
                             <Tabs
                                 defaultActiveKey="sell"
                                 id="main-banner-tabs"
-                                className="mb-3 list-inline"
+                                className="list-inline"
                                 onSelect={() => reset()} // Reset form on tab change
                             >
                                 <Tab eventKey="sell" title="Sell">
@@ -60,6 +62,7 @@ const MainBannerSection = () => {
                                     />
                                 </Tab>
                             </Tabs>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -98,7 +101,7 @@ const FormSection = ({ onSubmit, register, errors }) => {
                                        
                                         
                                     </div>
-                                    <div className="rld-single-select item">
+                                    <div className="rld-single-select item select-type">
                                         <select
                                             className={`select single-select mr-0  ${errors.propertyType ? 'is-invalid' : ''}`}
                                             {...register('propertyType', { required: 'Property Type is required' })}
@@ -113,7 +116,7 @@ const FormSection = ({ onSubmit, register, errors }) => {
                                         )}
                                        
                                     </div>
-                                    <div className="rld-single-input item">
+                                    <div className="rld-single-input item input-box">
                                       
 
                                         <input
@@ -127,11 +130,6 @@ const FormSection = ({ onSubmit, register, errors }) => {
                                         )}
                                     </div>
                                     <div className="item rt-filter-btn">
-                                        <div className="dropdown-filter item">
-                                            <span>
-                                                <i className="fas fa-sliders-h"></i>
-                                            </span>
-                                        </div>
                                         <div className="filter-button-area">                                          
 
                                             <Button type="submit" className="btn btn-primary filter-btn">
@@ -154,7 +152,7 @@ const FormSection = ({ onSubmit, register, errors }) => {
                         animationName: 'fadeInUp',
                     }}
                 >
-                    We’ve more than{' '}
+                    Weï¿½ve more than{' '}
                     <span className="banner-p">54,000</span>{' '}
                     apartments, place &amp; plot.
 

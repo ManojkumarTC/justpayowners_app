@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
+import jsonCount from '../../mockdata/totalcount.json'
+
+
 
 const ExplorePropertyTypes = ({ propertyType }) => {
+    useEffect(() => {
+        console.log(jsonCount)
+        console.log('PropertyCounts component rendered');
+    }, []);
     return (
         <>
             <section className="feature-wrap2 rt-feature-slide-wrap">
@@ -20,7 +27,7 @@ const ExplorePropertyTypes = ({ propertyType }) => {
                         </div>
                         <div className="col-lg-6">
                             <div className="feature-layout-nav-button-wrap">
-                                <span className="feature-btn-prev">
+                                <span className="feature-btn-prev mr-2 d-flex">
                                     <i className="fas fa-chevron-left"></i>
                                 </span>
                                 <span className="feature-btn-next">
@@ -40,69 +47,31 @@ const ExplorePropertyTypes = ({ propertyType }) => {
                         loop={true}
                         className="feature-layout-style-1"
                     >
-                        <SwiperSlide>
-                            <div
-                                className="feature-box4 wow fadeInUp"
-                                data-wow-delay=".2s"
-                            >
-                                <div className="item-img">
-                                    <img
-                                        src="https://radiustheme.com/demo/html/homlisti/img/figure/shape22.svg"
-                                        alt="svg"
-                                        height="78"
-                                        width="70"
-                                    />
+
+                        {jsonCount.slice(0, 8).map((item, index) => {
+                            return (<SwiperSlide key={index}>
+                                <div
+                                    className="feature-box4 wow fadeInUp"
+                                    data-wow-delay=".3s"
+                                >
+                                    <div className="item-img">
+                                        <img
+                                            src={item.svg}
+                                            alt="svg"
+                                            height="78"
+                                            width="70"
+                                        />
+                                    </div>
+                                    <div className="item-content">
+                                        <h3 className="item-title">
+                                            <a href={item.url}>{item.text}</a>
+                                        </h3>
+                                        <div className="item-categoery">3 Listings</div>
+                                    </div>
                                 </div>
-                                <div className="item-content">
-                                    <h3 className="item-title">
-                                        <a href="single-listing1.html">Apartments</a>
-                                    </h3>
-                                    <div className="item-categoery">4 Listings</div>
-                                </div>
-                            </div>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <div
-                                className="feature-box4 wow fadeInUp"
-                                data-wow-delay=".3s"
-                            >
-                                <div className="item-img">
-                                    <img
-                                        src="https://radiustheme.com/demo/html/homlisti/img/figure/shape23.svg"
-                                        alt="svg"
-                                        height="78"
-                                        width="70"
-                                    />
-                                </div>
-                                <div className="item-content">
-                                    <h3 className="item-title">
-                                        <a href="single-listing1.html">Commercial</a>
-                                    </h3>
-                                    <div className="item-categoery">3 Listings</div>
-                                </div>
-                            </div>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <div
-                                className="feature-box4 wow fadeInUp"
-                                data-wow-delay=".3s"
-                            >
-                                <div className="item-img">
-                                    <img
-                                        src="https://radiustheme.com/demo/html/homlisti/img/figure/shape23.svg"
-                                        alt="svg"
-                                        height="78"
-                                        width="70"
-                                    />
-                                </div>
-                                <div className="item-content">
-                                    <h3 className="item-title">
-                                        <a href="single-listing1.html">Commercial</a>
-                                    </h3>
-                                    <div className="item-categoery">3 Listings</div>
-                                </div>
-                            </div>
-                        </SwiperSlide>
+                            </SwiperSlide>)
+                        })}                   
+                      
                     </Swiper>
                 </div>
             </section>
