@@ -7,7 +7,12 @@ import router from  "./router/router.jsx"
 
 function App() {
     return (
-        <RouterProvider router={router} />
+        /*<RouterProvider router={router} />*/
+        <RouterProvider
+    router={router}
+    fallbackElement={<div>Loading...</div>}
+    future={{ v7_scrollRestoration: true }}
+  />
     );
 }
 export default App;

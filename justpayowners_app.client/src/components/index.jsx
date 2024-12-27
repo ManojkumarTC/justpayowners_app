@@ -3,7 +3,7 @@
 export { default as BannerBox } from "./BannerBox";
 export { default as CompanyRights } from "./CompanyRights";
 export { default as QuickLinks } from "./QuickLinks";
-
+export { default as ScrollToTop } from "./ScrollToTop";
 
 export { default as SiteLogo } from "./SiteLogo";
 export { default as UserNotification } from "./UserNotification";
@@ -13,6 +13,7 @@ export { default as BlogElement } from "./BlogElement";
 export { default as ImageWithFallback } from "./ImageWithFallback";
 export { default as BlogPostDetails } from "./BlogDetailsElement";
 export { default as CommonLeftNavigation } from "./CommonLeftNavigation";
+
 
 
 export { default as PropertyList } from "./property/PropertyList";

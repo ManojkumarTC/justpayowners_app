@@ -7,6 +7,7 @@ const AboutUs = function () {
     return (<>      
         <section className="about-wrap2 grid-wrap3">
             <div className="container">
+                <div className="col-md-12 rtcl-login-form-wrap">
                 <div className="row flex-row-reverse flex-lg-row">
                     <div className="col-xl-6 col-lg-6">
                         <div className="about-img">
@@ -98,6 +99,7 @@ const AboutUs = function () {
                         </div>
                     </div>
 
+                </div>
                 </div>
             </div>
         </section>

@@ -320,25 +320,28 @@ ul {
         display: block !important;
         position: absolute;
         width: 250px;
-        top: 36px;
+        top: 100%;
         background-color: white;
         border-color: rgb(221 221 221 / 1) !important;
         box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 10px 0px;
         z-index: 10;
-        border: 1px solid #467fcf !important;
+        border: 1px solid #e1e1e1 !important;
+        right:0px;
+        
     }
 
 .profileMenu .profileItm {
     display: block;
     padding: 0px 15px;
     font-weight: 400;
-    color: rgb(70 127 207) !important;
+    color:#212121 !important;
     text-align: left;
     border-bottom-color: rgb(235 235 235 / 1) !important;
     border-bottom-width: 1px;
     cursor: pointer;
     margin: 10px 0px;
     text-decoration: none !important;
+    font-size: 14px;
 }
 
     .profileMenu .profileItm:hover {
@@ -410,7 +413,9 @@ li.dropdown.submenu-level1 {
     }
 
     .submenu-level2-content.submenu-level2-content:last-child::after {
+
         display: none !important;
+
     }
 
 #headerMenuCollapse .nav.nav-tabs li:hover .sub_in_link2 li:first-child .dropdown-menu {
@@ -449,6 +454,7 @@ li.dropdown.submenu-level1 {
 
     #headerMenuCollapse .nav.nav-tabs li:hover .sub_in_link2 li:first-child:hover .dropdown-toggle::after {
         display: block !important;
+
     }
 
 #headerMenuCollapse .nav.nav-tabs .sub_in_link2:has(li:hover:not(li:first-child)) li:first-child .dropdown-toggle::after {
@@ -491,4 +497,44 @@ li.dropdown.submenu-level1 {
 
 #meanmenu .mean-bar img {
     height: 25px;
+}
+
+/*custom footer styles*/
+
+footer.footer-area .footer-top {
+    padding: 50px 30px;
+}
+
+footer.footer-area .footer-bottom {
+    padding: 15px 30px;
+}
+
+.footer-logo-area .item-social li {
+    margin-right: 10px;
+}
+
+@media (max-width:767px) {
+    .footer-bottom .copyright-area1 {
+        text-align: left !important;
+    }
+
+    .footer-logo-area .item-social {
+        float: none !important;
+    }
+
+    .copyright-area1 span {
+        display: block;
+    }
+}
+
+.set_location.position-relative {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.set_location .city {
+    height: max-content;
+    border: 1px solid black;
+    padding: 10px;
 }

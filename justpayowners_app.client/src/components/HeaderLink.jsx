@@ -24,9 +24,8 @@ const HeaderLink = ({ propsProfile = false }) => {
                         <MenuLink />
 
                     </div>
-
-
                     <div className="col-xl-4 col-lg-4 d-flex justify-content-end">
+                        <LocationListing />
                         {showResults ? null : <HeaderButtons />}
                         {showResults ? <> <UserNotification /> <UserProfileControls /> </> : null}
                     </div>
@@ -40,17 +39,3 @@ const HeaderLink = ({ propsProfile = false }) => {
 }
 
 export default HeaderLink
-
-
-//  < div className = "header" >
-//      <div className="container">
-//          <div className="d-flex align-items-center">
-
-//              <LocationListing />
-//              <div className="d-flex order-lg-2 ml-auto">
-//                  {showResults ? null : <HeaderButtons />}
-//
-//              </div>
-//          </div>
-//      </div>
-//</div >

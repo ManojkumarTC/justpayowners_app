@@ -27,7 +27,7 @@ const ExplorePropertyTypes = ({ propertyType }) => {
                         </div>
                         <div className="col-lg-6">
                             <div className="feature-layout-nav-button-wrap">
-                                <span className="feature-btn-prev">
+                                <span className="feature-btn-prev mr-2 d-flex">
                                     <i className="fas fa-chevron-left"></i>
                                 </span>
                                 <span className="feature-btn-next">

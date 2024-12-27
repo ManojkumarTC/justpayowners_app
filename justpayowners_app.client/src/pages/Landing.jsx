@@ -95,7 +95,7 @@ const Landing = () => {
         <MainBannerSection />       
         <OurServices />
         <ExplorePropertyTypes />
-        <PropertyHighlights pickedData={[]} headline={'Latest Our Residential Rental Post'} url="residential_rentals" />
+        <PropertyHighlights pickedData={[]} headline={'Latest Our Residential Rental Post'} url="residential_rentals" template="Landing" />
 
 
         <ServiceFeedback data={Testimonials}  />

@@ -2,14 +2,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom'
 import { clearSavedListing, handleLisingRemove, handleSave } from '../../redux/saveListing/saveListingSlice';
-import { RiArmchairLine } from 'react-icons/ri';
-import { FaRegBuilding } from 'react-icons/fa6';
-import { LuUser2 } from 'react-icons/lu';
-import moment from 'moment';
-import { IoMdHeartEmpty } from 'react-icons/io';
-import { BsFlagFill } from 'react-icons/bs';
-import { IoKeyOutline } from 'react-icons/io5';
-
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
